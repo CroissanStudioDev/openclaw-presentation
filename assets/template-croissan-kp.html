@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{TITLE}}</title>
+  
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.min.css">
+  
+  <!-- Print PDF styles (must be loaded conditionally) -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi)
+      ? 'https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/print/pdf.css'
+      : 'https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+  
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/sf-pro-display">
+  
+  <!-- Croissan KP Theme -->
+  <style>
+    :root {
+      /* Core palette (from Figma KP Templates) */
+      --kp-bg: #ebebeb;
+      --kp-text: #26242c;
+      --kp-text-muted: #89888c;
+      --kp-accent: #2626c9;
+      --kp-accent-bright: #3840ff;
+      --kp-white: #ffffff;
+      --kp-black: #000000;
+      --kp-card-bg: #d9d9d9;
+      
+      /* Extended palette (from Figma Slides file) */
+      --kp-blue-apple: #007aff;
+      --kp-blue-ios: #0a84ff;
+      --kp-green-spotify: #1ed760;
+      --kp-green-dark: #378a46;
+      --kp-purple: #4f378a;
+      --kp-cyan: #2fcdff;
+      --kp-sky: #71c3fd;
+      --kp-slate: #0f172a;
+      --kp-navy: #2f3753;
+      --kp-gray-dark: #1c1c1c;
+      --kp-gray-mid: #333333;
+      --kp-gray-light: #777777;
+    }
+    
+    .reveal-viewport { 
+      background: var(--kp-bg); 
+    }
+    
+    .reveal {
+      font-family: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 32px;
+      color: var(--kp-text);
+    }
+    
+    .reveal .slides section {
+      text-align: left;
+      padding: 60px 80px;
+      line-height: 1.3;
+      box-sizing: border-box;
+      height: 100%;
+    }
+    
+    /* Print PDF fix - ensure padding is preserved */
+    @page {
+      size: 1280px 720px;
+      margin: 0;
+    }
+    
+    .print-pdf .reveal .slides section {
+      padding: 60px 80px !important;
+    }
+    
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+      font-family: "SF Pro Display", -apple-system, sans-serif;
+      font-weight: 600;
+      color: var(--kp-text);
+      margin: 0 0 24px 0;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: none;
+    }
+    
+    .reveal h1 { font-size: 2.75em; }
+    .reveal h2 { font-size: 2em; }
+    .reveal h3 { font-size: 1.5em; }
+    
+    .reveal p, .reveal li {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    
+    .reveal ul { 
+      list-style-type: disc; 
+      margin-left: 1.5em; 
+    }
+    
+    .reveal li { 
+      margin: 0.4em 0; 
+    }
+    
+    .reveal a { 
+      color: var(--kp-accent); 
+      text-decoration: none; 
+    }
+    
+    .reveal a:hover { 
+      color: var(--kp-accent-bright); 
+    }
+    
+    .reveal code {
+      font-family: "JetBrains Mono", "SF Mono", monospace;
+      background: rgba(38, 38, 201, 0.1);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+    
+    .reveal pre {
+      background: var(--kp-text);
+      border-radius: 8px;
+      margin: 24px 0;
+    }
+    
+    .reveal pre code {
+      background: none;
+      color: var(--kp-bg);
+      padding: 20px 24px;
+      display: block;
+    }
+    
+    .reveal table { 
+      width: 100%; 
+      border-collapse: collapse; 
+      margin: 24px 0; 
+    }
+    
+    .reveal th { 
+      background: var(--kp-text); 
+      color: var(--kp-white); 
+      font-weight: 600; 
+      text-align: left; 
+    }
+    
+    .reveal th, .reveal td { 
+      padding: 12px 16px; 
+      border-bottom: 1px solid var(--kp-card-bg); 
+      font-size: 16px; 
+    }
+    
+    .reveal img { 
+      border-radius: 8px; 
+    }
+    
+    .reveal .progress { 
+      background: rgba(38, 36, 44, 0.15); 
+      height: 3px; 
+    }
+    
+    .reveal .progress span { 
+      background: var(--kp-accent); 
+    }
+    
+    .reveal .controls { 
+      color: var(--kp-accent); 
+    }
+    
+    .reveal .slide-number { 
+      color: var(--kp-text-muted); 
+      font-size: 14px; 
+    }
+    
+    /* Custom layout classes */
+    .logo {
+      position: absolute;
+      top: 60px;
+      right: 80px;
+      font-size: 24px;
+      color: var(--kp-text-muted);
+      font-weight: 400;
+    }
+    
+    .footer {
+      position: absolute;
+      bottom: 60px;
+      left: 80px;
+      font-size: 14px;
+      color: var(--kp-text-muted);
+    }
+    
+    .legal {
+      position: absolute;
+      bottom: 60px;
+      left: 80px;
+      font-size: 12px;
+      color: var(--kp-text-muted);
+      line-height: 1.5;
+      max-width: 60%;
+    }
+    
+    /* Color utilities */
+    .accent { color: var(--kp-accent); }
+    .accent-bright { color: var(--kp-accent-bright); }
+    .muted { color: var(--kp-text-muted); }
+    .text-white { color: var(--kp-white); }
+    .text-black { color: var(--kp-black); }
+    
+    /* Extended color utilities */
+    .text-blue { color: var(--kp-blue-apple); }
+    .text-green { color: var(--kp-green-spotify); }
+    .text-purple { color: var(--kp-purple); }
+    .text-cyan { color: var(--kp-cyan); }
+    .text-slate { color: var(--kp-slate); }
+    
+    /* Background utilities */
+    .bg-white { background: var(--kp-white); }
+    .bg-dark { background: var(--kp-text); color: var(--kp-white); }
+    .bg-slate { background: var(--kp-slate); color: var(--kp-white); }
+    .bg-accent { background: var(--kp-accent); color: var(--kp-white); }
+    .bg-green { background: var(--kp-green-spotify); color: var(--kp-black); }
+    .bg-purple { background: var(--kp-purple); color: var(--kp-white); }
+    
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      height: calc(100% - 80px);
+    }
+    
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 8px;
+      margin-top: 24px;
+    }
+    
+    .image-grid img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+    
+    .card {
+      background: var(--kp-white);
+      padding: 24px;
+      border-radius: 8px;
+    }
+    
+    /* Print PDF overrides */
+    @media print {
+      .reveal .progress,
+      .reveal .controls {
+        display: none !important;
+      }
+      
+      .reveal-viewport {
+        background: var(--kp-bg) !important;
+      }
+      
+      .reveal .slides section {
+        page-break-after: always;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+  
+  <!-- Syntax highlighting -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.min.css">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      
+      <!-- Title Slide -->
+      <section>
+        <span class="logo">Croissan Studio</span>
+        <h1>Коммерческое<br>предложение<br>для &lt;проект&gt;</h1>
+        <div class="legal">
+          ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ "КРУАССАН СТУДИО",<br>
+          ИНН 1683016446, КПП 168301001<br>
+          Генеральный директор Полин С. И.
+        </div>
+      </section>
+      
+      <!-- About Us -->
+      <section>
+        <span class="logo">Croissan Studio</span>
+        <h1>Мы Croissan Studio.</h1>
+        <h2>Внедряем<br>генеративный ИИ<br>в бизнес</h2>
+        <div class="image-grid">
+          <img src="https://placehold.co/200x120/d9d9d9/d9d9d9" alt="">
+          <img src="https://placehold.co/200x120/d9d9d9/d9d9d9" alt="">
+          <img src="https://placehold.co/200x120/d9d9d9/d9d9d9" alt="">
+          <img src="https://placehold.co/200x120/d9d9d9/d9d9d9" alt="">
+          <img src="https://placehold.co/200x120/d9d9d9/d9d9d9" alt="">
+          <img src="https://placehold.co/200x120/d9d9d9/d9d9d9" alt="">
+        </div>
+      </section>
+      
+      <!-- Section Title -->
+      <section>
+        <h1>Условия<br>взаимодействия</h1>
+        <span class="footer">Croissan Studio © 2024</span>
+      </section>
+      
+      <!-- Content Slide -->
+      <section>
+        <span class="logo">Croissan Studio</span>
+        <h2>Заголовок раздела</h2>
+        <ul>
+          <li>Первый пункт списка</li>
+          <li>Второй пункт с деталями</li>
+          <li>Третий пункт</li>
+        </ul>
+        <span class="footer">Croissan Studio © 2024</span>
+      </section>
+      
+      <!-- Two Column -->
+      <section>
+        <span class="logo">Croissan Studio</span>
+        <div class="two-col">
+          <div>
+            <h2>Текст слева</h2>
+            <p>Описание проекта или решения с ключевыми деталями.</p>
+          </div>
+          <div>
+            <img src="https://placehold.co/500x300/d9d9d9/89888c?text=Image" alt="">
+          </div>
+        </div>
+        <span class="footer">Croissan Studio © 2024</span>
+      </section>
+      
+      <!-- Closing -->
+      <section>
+        <span class="logo">Croissan Studio</span>
+        <h1>Спасибо!</h1>
+        <p>
+          <strong>Контакты:</strong><br>
+          hello@croissanstudio.ru<br>
+          +7 (XXX) XXX-XX-XX
+        </p>
+      </section>
+      
+    </div>
+  </div>
+
+  <!-- Reveal.js Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.min.js"></script>
+  
+  <script>
+    Reveal.initialize({
+      hash: true,
+      controls: true,
+      progress: true,
+      slideNumber: false,
+      transition: 'none',
+      width: 1280,
+      height: 720,
+      margin: 0,
+      center: false,
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenClaw: как сэкономить 10 часов в день</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="theme-croissan.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
+  <style>
+    
+    .time-saved { 
+      background: linear-gradient(135deg, #00C758, #3B82F6); 
+      -webkit-background-clip: text; 
+      -webkit-text-fill-color: transparent;
+      font-weight: 900;
+    }
+    .before-after {
+      display: flex;
+      justify-content: space-around;
+      gap: 40px;
+      margin-top: 40px;
+    }
+    .before-after > div {
+      flex: 1;
+      padding: 20px;
+      border-radius: 12px;
+    }
+    .before { background: rgba(251, 44, 54, 0.1); }
+    .after { background: rgba(0, 199, 88, 0.1); }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Титульный слайд -->
+      <section>
+        <h1 style="font-size: 3em;">OpenClaw</h1>
+        <p>Как сэкономить <span class="time-saved">10 часов</span> в день</p>
+        <p><small>Личный ИИ-ассистент в твоём кармане</small></p>
+      </section>
+
+      <!-- Проблема -->
+      <section>
+        <h2>Знакомая ситуация?</h2>
+        <ul>
+          <li class="fragment">📧 Тонны писем каждый день</li>
+          <li class="fragment">📅 Ручное планирование встреч</li>
+          <li class="fragment">🔍 Поиск информации по 10 вкладкам</li>
+          <li class="fragment">📝 Рутинные задачи снова и снова</li>
+          <li class="fragment">💬 Переключение между 5 мессенджерами</li>
+        </ul>
+      </section>
+
+      <!-- Что такое OpenClaw -->
+      <section>
+        <section>
+          <h2>Что такое OpenClaw?</h2>
+          <p>Self-hosted gateway для ИИ-агентов</p>
+          <p>↓</p>
+        </section>
+        <section>
+          <h3 class="accent">Один агент — все мессенджеры</h3>
+          <div style="font-size: 2em; margin: 40px 0;">
+            💬 WhatsApp &nbsp; 📱 Telegram &nbsp; 🎮 Discord &nbsp; 💻 iMessage
+          </div>
+          <p>Пишешь в любой — получаешь ответ</p>
+        </section>
+        <section>
+          <h3 class="accent">Твои данные — твои правила</h3>
+          <ul>
+            <li>Работает на твоём железе</li>
+            <li>Никаких облаков с твоими данными</li>
+            <li>MIT лицензия, open source</li>
+          </ul>
+        </section>
+      </section>
+
+      <!-- Экономия времени по категориям -->
+      <section>
+        <h2>Где экономим время?</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; font-size: 0.8em;">
+          <div class="card">
+            <h4>📧 Email</h4>
+            <p class="time-saved" style="font-size: 1.5em;">−2ч/день</p>
+          </div>
+          <div class="card">
+            <h4>📅 Календарь</h4>
+            <p class="time-saved" style="font-size: 1.5em;">−1ч/день</p>
+          </div>
+          <div class="card">
+            <h4>🔍 Ресерч</h4>
+            <p class="time-saved" style="font-size: 1.5em;">−3ч/день</p>
+          </div>
+          <div class="card">
+            <h4>💻 Код/автоматизация</h4>
+            <p class="time-saved" style="font-size: 1.5em;">−4ч/день</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Пример 1: Email -->
+      <section data-auto-animate>
+        <h2>📧 Email: было vs стало</h2>
+      </section>
+      <section data-auto-animate>
+        <h2>📧 Email: было vs стало</h2>
+        <div class="before-after">
+          <div class="before">
+            <h4>❌ Раньше</h4>
+            <p>Открыть Gmail</p>
+            <p>Прочитать 50 писем</p>
+            <p>Написать ответы</p>
+            <p>~2 часа</p>
+          </div>
+          <div class="after">
+            <h4>✅ Сейчас</h4>
+            <p>"Проверь почту, ответь на срочные"</p>
+            <p>~5 минут</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Пример 2: Календарь -->
+      <section data-auto-animate>
+        <h2>📅 Календарь: было vs стало</h2>
+      </section>
+      <section data-auto-animate>
+        <h2>📅 Календарь: было vs стало</h2>
+        <div class="before-after">
+          <div class="before">
+            <h4>❌ Раньше</h4>
+            <p>Открыть календарь</p>
+            <p>Найти свободный слот</p>
+            <p>Создать событие</p>
+            <p>Добавить участников</p>
+          </div>
+          <div class="after">
+            <h4>✅ Сейчас</h4>
+            <p>"Поставь созвон с Никитой на завтра в 15:00"</p>
+            <p>Готово ✓</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Пример 3: Ресерч -->
+      <section>
+        <h2>🔍 Ресерч</h2>
+        <pre><code data-trim class="language-text">
+Ты: "Найди топ-5 конкурентов Notion, 
+     сравни цены и фичи"
+
+OpenClaw:
+✓ Поиск по 20+ источникам
+✓ Структурированная таблица
+✓ Выводы и рекомендации
+        </code></pre>
+        <p class="fragment"><span class="time-saved">3 часа → 2 минуты</span></p>
+      </section>
+
+      <!-- Пример 4: Код -->
+      <section>
+        <h2>💻 Код и автоматизация</h2>
+        <pre><code data-trim data-line-numbers="1|2-3|4-5">
+Ты: "Напиши скрипт, который каждый день 
+     в 9:00 присылает мне курс BTC"
+
+OpenClaw: *пишет код*
+         *настраивает cron*
+         *тестирует*
+         "Готово, завтра проверим!"
+        </code></pre>
+      </section>
+
+      <!-- Skills -->
+      <section>
+        <h2>🧩 Skills — суперспособности</h2>
+        <ul>
+          <li class="fragment"><strong>gog</strong> — Google Workspace (Gmail, Calendar, Drive)</li>
+          <li class="fragment"><strong>github</strong> — Issues, PRs, код-ревью</li>
+          <li class="fragment"><strong>exa</strong> — нейро-поиск по вебу</li>
+          <li class="fragment"><strong>spotify</strong> — управление музыкой</li>
+          <li class="fragment"><strong>weather</strong> — погода без API-ключей</li>
+          <li class="fragment">И ещё 60+ на <a href="https://clawhub.com">clawhub.com</a></li>
+        </ul>
+      </section>
+
+      <!-- Mobile nodes -->
+      <section>
+        <h2>📱 Мобильные ноды</h2>
+        <div style="display: flex; justify-content: center; gap: 60px; margin-top: 40px;">
+          <div style="text-align: center;">
+            <p style="font-size: 3em;">🍎</p>
+            <p>iOS</p>
+          </div>
+          <div style="text-align: center;">
+            <p style="font-size: 3em;">🤖</p>
+            <p>Android</p>
+          </div>
+        </div>
+        <ul style="margin-top: 30px;">
+          <li>Камера и скриншоты</li>
+          <li>Геолокация</li>
+          <li>Уведомления</li>
+          <li>Canvas для UI</li>
+        </ul>
+      </section>
+
+      <!-- Итог: 10 часов -->
+      <section>
+        <h2>Итого: <span class="time-saved">10+ часов</span></h2>
+        <table style="margin: 40px auto; font-size: 0.8em;">
+          <tr><th>Задача</th><th>Было</th><th>Стало</th><th>Экономия</th></tr>
+          <tr><td>Email</td><td>2ч</td><td>10мин</td><td class="accent">1ч 50мин</td></tr>
+          <tr><td>Календарь</td><td>1ч</td><td>5мин</td><td class="accent">55мин</td></tr>
+          <tr><td>Ресерч</td><td>3ч</td><td>15мин</td><td class="accent">2ч 45мин</td></tr>
+          <tr><td>Код/скрипты</td><td>4ч</td><td>30мин</td><td class="accent">3ч 30мин</td></tr>
+          <tr><td>Рутина</td><td>2ч</td><td>10мин</td><td class="accent">1ч 50мин</td></tr>
+          <tr style="font-weight: bold;"><td>Всего</td><td>12ч</td><td>1ч 10мин</td><td class="time-saved">10ч 50мин</td></tr>
+        </table>
+      </section>
+
+      <!-- Установка -->
+      <section data-background-color="#150E47">
+        <h2 style="color: white;">Начать за 5 минут</h2>
+        <pre style="background: rgba(255,255,255,0.1);"><code data-trim class="language-bash">
+# Установка
+npm install -g openclaw@latest
+
+# Запуск визарда
+openclaw onboard --install-daemon
+
+# Подключить Telegram/WhatsApp
+openclaw channels login
+        </code></pre>
+        <p style="color: rgba(255,255,255,0.8); margin-top: 30px;">
+          docs.openclaw.ai
+        </p>
+      </section>
+
+      <!-- CTA -->
+      <section data-background-color="#3B82F6">
+        <h2 style="color: white;">Время — главный ресурс</h2>
+        <p style="color: rgba(255,255,255,0.9); font-size: 1.2em;">
+          Верни себе 10 часов каждый день
+        </p>
+        <p style="margin-top: 60px;">
+          <span style="color: white; background: rgba(255,255,255,0.2); padding: 15px 30px; border-radius: 8px;">
+            openclaw.ai
+          </span>
+        </p>
+      </section>
+
+      <!-- Финал -->
+      <section>
+        <h2>Вопросы?</h2>
+        <p>
+          <small>
+            GitHub: <a href="https://github.com/openclaw/openclaw">openclaw/openclaw</a><br>
+            Discord: <a href="https://discord.com/invite/clawd">discord.com/invite/clawd</a><br>
+            Docs: <a href="https://docs.openclaw.ai">docs.openclaw.ai</a>
+          </small>
+        </p>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      controls: true,
+      progress: true,
+      slideNumber: true,
+      transition: 'slide',
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+    });
+  </script>
+</body>
+</html>

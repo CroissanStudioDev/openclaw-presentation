@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{TITLE}}</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/{{THEME}}.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Title Slide -->
+      <section>
+        <h1>{{TITLE}}</h1>
+        <p><small>Use arrow keys to navigate</small></p>
+      </section>
+
+      <!-- Example Slide -->
+      <section>
+        <h2>Slide Title</h2>
+        <ul>
+          <li class="fragment">First point</li>
+          <li class="fragment">Second point</li>
+          <li class="fragment">Third point</li>
+        </ul>
+        <aside class="notes">
+          Speaker notes go here. Press S to open speaker view.
+        </aside>
+      </section>
+
+      <!-- Vertical Slides Example -->
+      <section>
+        <section>
+          <h2>Vertical Slides</h2>
+          <p>Press ↓ to go down</p>
+        </section>
+        <section>
+          <h2>Nested Slide</h2>
+          <p>Great for drilling into details</p>
+        </section>
+      </section>
+
+      <!-- Code Example -->
+      <section>
+        <h2>Code Highlighting</h2>
+        <pre><code data-trim data-line-numbers="1-2|3-4">
+function greet(name) {
+  const message = `Hello, ${name}!`;
+  console.log(message);
+  return message;
+}
+        </code></pre>
+      </section>
+
+      <!-- Auto-Animate Example -->
+      <section data-auto-animate>
+        <h2 style="margin-top: 100px;">Auto-Animate</h2>
+      </section>
+      <section data-auto-animate>
+        <h2 style="margin-top: 0; font-size: 2em; color: #42affa;">Auto-Animate</h2>
+        <p>Elements animate automatically!</p>
+      </section>
+
+      <!-- Background Example -->
+      <section data-background-color="#4d7e65">
+        <h2>Custom Backgrounds</h2>
+        <p>Colors, images, videos, iframes</p>
+      </section>
+
+      <!-- End Slide -->
+      <section>
+        <h2>Thank You!</h2>
+        <p>
+          <small>
+            Built with <a href="https://revealjs.com">reveal.js</a>
+          </small>
+        </p>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      controls: true,
+      progress: true,
+      slideNumber: true,
+      transition: 'slide',
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+    });
+  </script>
+</body>
+</html>

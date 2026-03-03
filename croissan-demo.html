@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Внедрение ИИ в бизнес</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="theme-croissan.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Титульный слайд -->
+      <section>
+        <h1>Внедрение ИИ в бизнес</h1>
+        <p><small>Croissan Studio</small></p>
+      </section>
+
+      <!-- Пример слайда -->
+      <section>
+        <h2>Заголовок слайда</h2>
+        <ul>
+          <li class="fragment">Первый пункт</li>
+          <li class="fragment">Второй пункт</li>
+          <li class="fragment">Третий пункт</li>
+        </ul>
+        <aside class="notes">
+          Заметки спикера. Нажми S для открытия speaker view.
+        </aside>
+      </section>
+
+      <!-- Вертикальные слайды -->
+      <section>
+        <section>
+          <h2>Вертикальные слайды</h2>
+          <p>Нажми ↓ чтобы спуститься</p>
+        </section>
+        <section>
+          <h2>Вложенный слайд</h2>
+          <p>Отлично для детализации</p>
+        </section>
+      </section>
+
+      <!-- Код -->
+      <section>
+        <h2>Подсветка кода</h2>
+        <pre><code data-trim data-line-numbers="1-2|3-4">
+async function deployAI(model) {
+  const config = await loadConfig();
+  const result = model.predict(data);
+  return result;
+}
+        </code></pre>
+      </section>
+
+      <!-- Auto-Animate -->
+      <section data-auto-animate>
+        <h2 style="margin-top: 100px;">Auto-Animate</h2>
+      </section>
+      <section data-auto-animate>
+        <h2 style="margin-top: 0;">Auto-Animate</h2>
+        <p class="gradient-text">Элементы анимируются автоматически!</p>
+      </section>
+
+      <!-- Карточка -->
+      <section>
+        <h2>Стиль карточки</h2>
+        <div class="card">
+          <h3 class="accent">Заголовок карточки</h3>
+          <p>Контент внутри карточки с мягкой тенью и скруглёнными углами.</p>
+        </div>
+      </section>
+
+      <!-- Финал -->
+      <section>
+        <h2>Спасибо!</h2>
+        <p>
+          <small>
+            <a href="https://croissanstudio.ru">croissanstudio.ru</a>
+          </small>
+        </p>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      controls: true,
+      progress: true,
+      slideNumber: true,
+      transition: 'slide',
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+    });
+  </script>
+</body>
+</html>
