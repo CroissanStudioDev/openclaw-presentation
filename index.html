@@ -3,7 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Startup Talk #13 — ИИ-агент</title>
+  <title>Сотрудник, который не спит — Startup Talk #13</title>
+  
+  <!-- SEO & Open Graph -->
+  <meta name="description" content="Презентация о том, как ИИ-агент экономит 10+ часов в неделю. Сергей Полин, Croissan Studio.">
+  <meta property="og:title" content="Сотрудник, который не спит — Startup Talk #13">
+  <meta property="og:description" content="Как ИИ-агент экономит 10+ часов в неделю">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://croissanstudiodev.github.io/openclaw-presentation/">
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <!-- Preconnect for faster font loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.min.css">
@@ -18,7 +30,7 @@
       --text: #26242c;
       --text-light: #ffffff;
       --text-muted: #89888c;
-      --accent: #2626c9;
+      --accent: #2727CA;  /* Figma exact */
       --white: #ffffff;
       --green: #34c759;
       --red: #ff3b30;
@@ -356,6 +368,13 @@
     }
     
     .emoji { font-size: 64px; margin-bottom: 16px; }
+    
+    /* ===== PRINT / PDF ===== */
+    @media print {
+      .reveal .slides section {
+        page-break-after: always;
+      }
+    }
   </style>
 </head>
 <body>
@@ -365,7 +384,7 @@
       <!-- 1. TITLE -->
       <section class="center-slide dark-slide">
         <span class="logo">Startup Talk #13</span>
-        <h1 style="font-size: 72px;">Сотрудник,<br>который не спит</h1>
+        <h1 style="font-size: 72px; letter-spacing: -0.03em;">Сотрудник,<br>который не спит</h1>
         <p class="muted" style="margin-top: 40px;">
           Сергей Полин · Croissan Studio<br>
           <span class="small">4 марта 2026 · Иннополис</span>
