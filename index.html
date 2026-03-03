@@ -1,285 +1,864 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OpenClaw: как сэкономить 10 часов в день</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
-  <link rel="stylesheet" href="theme-croissan.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
+  <title>Startup Talk #13 — ИИ-агент</title>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.min.css">
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  
   <style>
+    :root {
+      --kp-bg: #ebebeb;
+      --kp-bg-dark: #26242c;
+      --kp-text: #26242c;
+      --kp-text-light: #ffffff;
+      --kp-text-muted: #89888c;
+      --kp-accent: #2727CA;
+      --kp-accent-light: rgba(38, 38, 201, 0.1);
+      --kp-white: #ffffff;
+      --kp-green: #34c759;
+      --kp-red: #ff3b30;
+      --kp-orange: #ff9500;
+      --kp-glass: rgba(255, 255, 255, 0.7);
+      --kp-glass-border: rgba(255, 255, 255, 0.3);
+      --kp-shadow: 0 8px 32px rgba(38, 36, 44, 0.08);
+      --kp-shadow-lg: 0 16px 48px rgba(38, 36, 44, 0.12);
+    }
     
-    .time-saved { 
-      background: linear-gradient(135deg, #00C758, #3B82F6); 
-      -webkit-background-clip: text; 
-      -webkit-text-fill-color: transparent;
-      font-weight: 900;
+    .reveal-viewport { background: var(--kp-bg); }
+    
+    .reveal {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 32px;
+      color: var(--kp-text);
     }
-    .before-after {
+    
+    .reveal .slides section {
+      text-align: left;
+      padding: 60px 80px;
+      box-sizing: border-box;
+      height: 100%;
+    }
+    
+    .reveal h1, .reveal h2, .reveal h3 {
+      font-family: "Inter", -apple-system, sans-serif;
+      font-weight: 700;
+      color: var(--kp-text);
+      margin: 0 0 24px 0;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+    
+    /* TREND: Massive Typography */
+    .reveal h1 { font-size: 3.2em; }
+    .reveal h2 { font-size: 2em; }
+    .reveal h3 { font-size: 1.2em; font-weight: 600; }
+    
+    .reveal p { font-size: 22px; line-height: 1.5; margin: 16px 0; }
+    .reveal li { font-size: 19px; margin: 8px 0; line-height: 1.4; }
+    .reveal ul { margin-left: 1.2em; }
+    
+    .reveal .progress { background: rgba(0,0,0,0.08); height: 4px; }
+    .reveal .progress span { background: var(--kp-accent); }
+    .reveal .controls { color: var(--kp-accent); }
+
+    .logo {
+      position: absolute;
+      top: 50px;
+      right: 70px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--kp-text-muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    
+    .section-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--kp-accent);
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+    
+    .muted { color: var(--kp-text-muted); }
+    .accent { color: var(--kp-accent); }
+    .green { color: var(--kp-green); }
+    .red { color: var(--kp-red); }
+    .orange { color: var(--kp-orange); }
+    
+    /* TREND: Big number with massive type */
+    .big-number {
+      font-size: 7em;
+      font-weight: 800;
+      color: var(--kp-accent);
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+    }
+    
+    .center-slide {
       display: flex;
-      justify-content: space-around;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    /* TREND: Bento Grid Layout */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 20px;
+      height: 420px;
+    }
+    
+    .bento-item {
+      background: var(--kp-white);
+      
+      -webkit-
+      
+      border-radius: 9px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      
+      transition: transform 0.2s ease;
+    }
+    
+    .bento-item .icon { font-size: 28px; margin-bottom: 8px; }
+    .bento-item .label { font-size: 13px; font-weight: 500; }
+    
+    .bento-item.large {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+    
+    .bento-item.wide { grid-column: span 2; }
+    .bento-item.tall { grid-row: span 2; }
+    
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 40px;
-      margin-top: 40px;
+      margin-top: 24px;
     }
-    .before-after > div {
-      flex: 1;
+    
+    .three-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+      margin-top: 24px;
+    }
+    
+    /* TREND: Glassmorphism cards */
+    .glass-card {
+      background: var(--kp-white);
+      
+      -webkit-
+      
+      border-radius: 18px;
+      padding: 24px;
+      
+    }
+    
+    .card {
+      background: var(--kp-white);
       padding: 20px;
-      border-radius: 12px;
+      border-radius: 9px;
+      
     }
-    .before { background: rgba(251, 44, 54, 0.1); }
-    .after { background: rgba(0, 199, 88, 0.1); }
+    
+    .card-accent {
+      background: var(--kp-white);
+      padding: 20px;
+      border-radius: 9px;
+      
+      border-left: 4px solid var(--kp-accent);
+    }
+    
+    /* Dark accent slide */
+    .dark-slide {
+      background: var(--kp-bg-dark) !important;
+      color: var(--kp-text-light);
+    }
+    
+    .dark-slide h1, .dark-slide h2, .dark-slide h3 {
+      color: var(--kp-text-light);
+    }
+    
+    .dark-slide .logo { color: rgba(255,255,255,0.5); }
+    .dark-slide .muted { color: rgba(255,255,255,0.6); }
+    .dark-slide .accent { color: #7B7BFF; }
+    
+    .highlight-box {
+      background: var(--kp-accent);
+      color: white;
+      padding: 24px 32px;
+      border-radius: 9px;
+      margin: 20px 0;
+    }
+    
+    .dark-box {
+      background: var(--kp-text);
+      color: white;
+      padding: 20px 28px;
+      border-radius: 9px;
+      margin: 16px 0;
+      font-size: 18px;
+    }
+    
+    .orange-box {
+      background: var(--kp-orange);
+      color: white;
+      padding: 20px 28px;
+      border-radius: 9px;
+      margin: 16px 0;
+    }
+    
+    .quote {
+      font-size: 28px;
+      font-weight: 500;
+      border-left: 4px solid var(--kp-accent);
+      padding-left: 28px;
+      margin: 28px 0;
+      line-height: 1.4;
+    }
+    
+    /* TREND: Data Storytelling - simplified stats */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin: 28px 0;
+    }
+    
+    .stat-card {
+      background: var(--kp-white);
+      padding: 24px 16px;
+      border-radius: 9px;
+      text-align: center;
+      
+    }
+    
+    .stat-card .num { 
+      font-size: 2.8em; 
+      font-weight: 700; 
+      color: var(--kp-accent); 
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .stat-card .label { 
+      font-size: 14px; 
+      color: var(--kp-text-muted); 
+      margin-top: 8px;
+      font-weight: 500;
+    }
+    
+    .timeline-compact {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 8px 24px;
+      margin: 20px 0;
+      font-size: 17px;
+    }
+    
+    .timeline-compact .time { 
+      font-weight: 700; 
+      color: var(--kp-accent);
+      font-size: 15px;
+    }
+    
+    .emoji { font-size: 4em; margin-bottom: 20px; }
+    
+    .punchline {
+      font-size: 1.6em;
+      font-weight: 600;
+      margin: 28px 0;
+      line-height: 1.35;
+    }
+    
+    .small { font-size: 15px; }
+    .tiny { font-size: 13px; }
+    
+    /* Tags for results */
+    .tag-grid {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+    
+    .tag {
+      background: var(--kp-white);
+      padding: 10px 18px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 500;
+      
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .tag .emoji { font-size: 1em; margin: 0; }
+    
+    /* Level cards for "how to start" */
+    .level-card {
+      background: var(--kp-white);
+      padding: 24px;
+      border-radius: 18px;
+      
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .level-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+    }
+    
+    .level-card.green::before { background: var(--kp-green); }
+    .level-card.orange::before { background: var(--kp-orange); }
+    .level-card.blue::before { background: var(--kp-accent); }
+    
+    .level-card h3 { margin-bottom: 8px; }
+    .level-card p { margin: 4px 0; }
+    
+    /* QR section */
+    .cta-grid {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 32px;
+      align-items: center;
+      margin-top: 32px;
+    }
+    
+    .qr-box {
+      width: 140px;
+      height: 140px;
+      background: var(--kp-white);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: var(--kp-text-muted);
+      
+    }
   </style>
 </head>
 <body>
   <div class="reveal">
     <div class="slides">
-
-      <!-- Титульный слайд -->
-      <section>
-        <h1 style="font-size: 3em;">OpenClaw</h1>
-        <p>Как сэкономить <span class="time-saved">10 часов</span> в день</p>
-        <p><small>Личный ИИ-ассистент в твоём кармане</small></p>
+      
+      <!-- 1. TITLE — Massive Typography -->
+      <section class="center-slide dark-slide">
+        <span class="logo">Startup Talk #13</span>
+        <h1 style="font-size: 4em; margin-bottom: 16px;">Сотрудник,<br>который не спит</h1>
+        <p class="muted" style="font-size: 20px; margin-top: 40px;">
+          Сергей Полин · Croissan Studio<br>
+          4 марта 2026 · Иннополис
+        </p>
       </section>
-
-      <!-- Проблема -->
+      
+      <!-- 2. HOOK -->
       <section>
-        <h2>Знакомая ситуация?</h2>
-        <ul>
-          <li class="fragment">📧 Тонны писем каждый день</li>
-          <li class="fragment">📅 Ручное планирование встреч</li>
-          <li class="fragment">🔍 Поиск информации по 10 вкладкам</li>
-          <li class="fragment">📝 Рутинные задачи снова и снова</li>
-          <li class="fragment">💬 Переключение между 5 мессенджерами</li>
-        </ul>
+        <span class="logo">Сейчас</span>
+        <p class="quote">
+          «Вчера в 22:40 я написал в Telegram:<br>
+          "Сделай презентацию на завтра,<br>
+          стиль возьми из нашей Figma"»
+        </p>
+        <p class="punchline">
+          Через 20 минут — готовые слайды.<br>
+          <span class="accent">Вы сейчас их смотрите.</span>
+        </p>
       </section>
-
-      <!-- Что такое OpenClaw -->
+      
+      <!-- 3. КТО Я -->
       <section>
-        <section>
-          <h2>Что такое OpenClaw?</h2>
-          <p>Self-hosted gateway для ИИ-агентов</p>
-          <p>↓</p>
-        </section>
-        <section>
-          <h3 class="accent">Один агент — все мессенджеры</h3>
-          <div style="font-size: 2em; margin: 40px 0;">
-            💬 WhatsApp &nbsp; 📱 Telegram &nbsp; 🎮 Discord &nbsp; 💻 iMessage
+        <span class="logo">Контекст</span>
+        <div class="section-label">Кто говорит</div>
+        <h2>Сергей Полин</h2>
+        <div class="two-col">
+          <div>
+            <div class="glass-card">
+              <p style="margin: 0;"><strong>Croissan Studio</strong></p>
+              <p class="small muted" style="margin: 4px 0;">Внедряем GenAI в бизнес</p>
+            </div>
+            <div class="glass-card" style="margin-top: 12px;">
+              <p style="margin: 0;"><strong>НейроХудожник</strong></p>
+              <p class="small muted" style="margin: 4px 0;">2.7k MAU · генерация изображений</p>
+            </div>
           </div>
-          <p>Пишешь в любой — получаешь ответ</p>
-        </section>
-        <section>
-          <h3 class="accent">Твои данные — твои правила</h3>
-          <ul>
-            <li>Работает на твоём железе</li>
-            <li>Никаких облаков с твоими данными</li>
-            <li>MIT лицензия, open source</li>
+          <div>
+            <p class="muted" style="margin-top: 0;">Я не продаю вам агента.</p>
+            <p>Расскажу, как это работает <strong>у меня</strong>, и что можно взять <strong>вам</strong>.</p>
+            <p class="small muted">Использую агента ~8 месяцев</p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- 4. ЧТО ТАКОЕ АГЕНТ -->
+      <section>
+        <span class="logo">Основы</span>
+        <div class="section-label">Главное отличие</div>
+        <h2>Агент ≠ ChatGPT</h2>
+        <div class="two-col" style="margin-top: 32px;">
+          <div class="card">
+            <h3 style="opacity: 0.5;">ChatGPT</h3>
+            <p style="font-size: 20px;"><strong>Отвечает</strong> на вопросы</p>
+            <div class="dark-box" style="background: #f5f5f5; color: var(--kp-text);">
+              <p style="margin: 0; font-size: 16px;">«Как создать событие в календаре?»</p>
+            </div>
+            <p class="small muted">→ Инструкция из 5 шагов</p>
+          </div>
+          <div class="card-accent">
+            <h3 class="accent">Агент</h3>
+            <p style="font-size: 20px;"><strong>Делает</strong></p>
+            <div class="dark-box">
+              <p style="margin: 0; font-size: 16px;">«Поставь встречу с Никитой на завтра 15:00»</p>
+            </div>
+            <p class="small green">→ Готово ✓</p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- 5. МОЙ СТЕК — Bento Grid -->
+      <section>
+        <span class="logo">Стек</span>
+        <div class="section-label">Интеграции</div>
+        <h2>К чему подключён агент</h2>
+        <div class="bento-grid">
+          <div class="bento-item large" style="background: var(--kp-accent); color: white;">
+            <div class="icon">🤖</div>
+            <div class="label" style="font-size: 16px; font-weight: 600;">Telegram</div>
+            <div class="tiny" style="opacity: 0.8; margin-top: 4px;">Голос работает</div>
+          </div>
+          <div class="bento-item"><div class="icon">📧</div><div class="label">Gmail</div></div>
+          <div class="bento-item"><div class="icon">📅</div><div class="label">Calendar</div></div>
+          <div class="bento-item"><div class="icon">📁</div><div class="label">Drive</div></div>
+          <div class="bento-item"><div class="icon">📊</div><div class="label">PostHog</div></div>
+          <div class="bento-item wide" style="background: var(--kp-text); color: white;">
+            <div class="icon">🐙</div>
+            <div class="label">GitHub + Dokploy</div>
+          </div>
+          <div class="bento-item"><div class="icon">🎨</div><div class="label">Figma</div></div>
+          <div class="bento-item"><div class="icon">📝</div><div class="label">Notion</div></div>
+          <div class="bento-item"><div class="icon">🌐</div><div class="label">Web</div></div>
+          <div class="bento-item"><div class="icon">☀️</div><div class="label">Weather</div></div>
+        </div>
+        <p class="tiny muted" style="margin-top: 12px; text-align: center;">+50 скиллов на clawhub.com</p>
+      </section>
+      
+      <!-- 6. МЕТА-КЕЙС -->
+      <section>
+        <span class="logo">Кейс #1</span>
+        <div class="section-label">Мета</div>
+        <h2>🎨 Эти слайды</h2>
+        <div class="dark-box">
+          «Создай презентацию для Startup Talk, стиль возьми из Figma»
+        </div>
+        <div class="timeline-compact" style="margin-top: 24px;">
+          <span class="time">+2 мин</span><span>Figma API → цвета, шрифты</span>
+          <span class="time">+5 мин</span><span>CSS-тема для Reveal.js</span>
+          <span class="time">+10 мин</span><span>Кейсы из истории чатов</span>
+          <span class="time">+3 мин</span><span>Экспорт в PDF</span>
+        </div>
+        <p style="margin-top: 24px; font-size: 28px;"><strong>20 минут.</strong> <span class="muted">Одно сообщение.</span></p>
+      </section>
+      
+      <!-- 7. КЕЙС: Аналитика — Data Storytelling -->
+      <section>
+        <span class="logo">Кейс #2</span>
+        <div class="section-label">Ежедневное</div>
+        <h2>📊 Метрики за 30 секунд</h2>
+        <div class="dark-box">«Как там DAU и конверсия?»</div>
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="num">221</div>
+            <div class="label">DAU</div>
+          </div>
+          <div class="stat-card">
+            <div class="num">14%</div>
+            <div class="label">Конверсия</div>
+          </div>
+          <div class="stat-card">
+            <div class="num">2.7k</div>
+            <div class="label">MAU</div>
+          </div>
+          <div class="stat-card">
+            <div class="num">79</div>
+            <div class="label">Платящих</div>
+          </div>
+        </div>
+        <p class="small muted">Раньше: PostHog → дашборд → фильтры → экспорт. <span class="red">15 минут.</span></p>
+      </section>
+      
+      <!-- 8. КЕЙС: Аналитика глубже -->
+      <section>
+        <span class="logo">Кейс #2</span>
+        <div class="section-label">Глубже</div>
+        <h2>📊 Воронка по источникам</h2>
+        <div class="dark-box">«Покажи конверсию по рекламным каналам за 30 дней»</div>
+        <div class="two-col" style="margin-top: 24px;">
+          <div class="glass-card">
+            <h3 style="margin-bottom: 16px;">landing_pocket</h3>
+            <div style="display: flex; align-items: center; gap: 8px; font-size: 14px;">
+              <span>420</span><span class="muted">→</span>
+              <span>380</span><span class="muted">→</span>
+              <span>95</span><span class="muted">→</span>
+              <span class="green" style="font-weight: 700; font-size: 18px;">42</span>
+            </div>
+            <p class="small muted" style="margin-top: 8px;">CR: <strong class="green">10%</strong></p>
+          </div>
+          <div class="glass-card">
+            <h3 style="margin-bottom: 16px;">edit_yandex</h3>
+            <div style="display: flex; align-items: center; gap: 8px; font-size: 14px;">
+              <span>62</span><span class="muted">→</span>
+              <span>58</span><span class="muted">→</span>
+              <span>12</span><span class="muted">→</span>
+              <span class="green" style="font-weight: 700; font-size: 18px;">3</span>
+            </div>
+            <p class="small muted" style="margin-top: 8px;">CR: 4.8%</p>
+          </div>
+        </div>
+        <p class="tiny muted" style="margin-top: 16px;">Вручную: дока → SQL → отладка → оформление. <span class="red">30-60 мин.</span></p>
+      </section>
+      
+      <!-- 9. DEMO #1 — Dark accent slide -->
+      <section class="center-slide dark-slide">
+        <div class="emoji">🎬</div>
+        <h1>Демо</h1>
+        <p style="font-size: 24px; margin-top: 16px; opacity: 0.8;">Живой запрос к аналитике</p>
+      </section>
+      
+      <!-- 10. КЕЙС: Календарь -->
+      <section>
+        <span class="logo">Кейс #3</span>
+        <div class="section-label">Координация</div>
+        <h2>📅 Встречи с контекстом</h2>
+        <div class="dark-box">«Поставь созвон с Никитой на завтра в 15:00, тема — ревью PR»</div>
+        <div class="glass-card" style="margin-top: 24px;">
+          <p style="margin: 0 0 12px 0; font-size: 18px;"><strong>Что делает агент:</strong></p>
+          <ul style="margin: 0;">
+            <li>Находит Никиту в контактах</li>
+            <li>Создаёт событие в командном календаре</li>
+            <li>Отправляет приглашение</li>
+            <li>Напоминает за 5 мин <em>с контекстом</em></li>
           </ul>
-        </section>
+        </div>
+        <div class="card" style="margin-top: 16px; border-left: 4px solid var(--kp-green);">
+          <p class="small" style="margin: 0;">💬 «Через 5 мин созвон с Никитой. Тема: ревью PR. Последний раз обсуждали миграцию БД.»</p>
+        </div>
       </section>
-
-      <!-- Экономия времени по категориям -->
+      
+      <!-- 11. КЕЙС: Поездка -->
       <section>
-        <h2>Где экономим время?</h2>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; font-size: 0.8em;">
-          <div class="card">
-            <h4>📧 Email</h4>
-            <p class="time-saved" style="font-size: 1.5em;">−2ч/день</p>
+        <span class="logo">Кейс #4</span>
+        <div class="section-label">Организация</div>
+        <h2>✈️ Командная поездка</h2>
+        <p style="font-size: 18px; margin-bottom: 20px;">5 человек · OpenTalks.AI · Белград · 5 дней</p>
+        <div class="two-col">
+          <div>
+            <h3 class="accent" style="font-size: 16px; margin-bottom: 12px;">✓ Агент сделал</h3>
+            <ul class="small">
+              <li>Notion-страница по дням</li>
+              <li>Кофейни по вкусам команды</li>
+              <li>Погода с алертами</li>
+              <li>Трансфер GetTransfer</li>
+              <li>Разделил счета после</li>
+            </ul>
           </div>
-          <div class="card">
-            <h4>📅 Календарь</h4>
-            <p class="time-saved" style="font-size: 1.5em;">−1ч/день</p>
-          </div>
-          <div class="card">
-            <h4>🔍 Ресерч</h4>
-            <p class="time-saved" style="font-size: 1.5em;">−3ч/день</p>
-          </div>
-          <div class="card">
-            <h4>💻 Код/автоматизация</h4>
-            <p class="time-saved" style="font-size: 1.5em;">−4ч/день</p>
+          <div>
+            <h3 class="red" style="font-size: 16px; margin-bottom: 12px;">✗ Без агента</h3>
+            <ul class="small muted">
+              <li>«Кто бронирует?»</li>
+              <li>«Скинь адрес»</li>
+              <li>«Где встречаемся?»</li>
+              <li>2-3 часа переписки</li>
+              <li>Кто-то забыл/опоздал</li>
+            </ul>
           </div>
         </div>
       </section>
-
-      <!-- Пример 1: Email -->
-      <section data-auto-animate>
-        <h2>📧 Email: было vs стало</h2>
+      
+      <!-- 12. КЕЙС: Поездка детали -->
+      <section>
+        <span class="logo">Кейс #4</span>
+        <div class="section-label">Timeline</div>
+        <h2>✈️ Как это выглядело</h2>
+        <div class="timeline-compact" style="font-size: 18px;">
+          <span class="time">За неделю</span><span>«Создай Notion для поездки в Белград»</span>
+          <span class="time">За 3 дня</span><span>«Найди кофейни в Dorćol, Эля любит specialty»</span>
+          <span class="time">За 1 день</span><span>«Погода? Нужна тёплая одежда?»</span>
+          <span class="time">День X</span><span>💬 «Трансфер в 19:40, табличка Croissan Studio»</span>
+          <span class="time">После</span><span>«Раздели счета из WhoAte»</span>
+        </div>
+        <p class="small muted" style="margin-top: 20px;">Всё в одном чате. Без переключений.</p>
       </section>
-      <section data-auto-animate>
-        <h2>📧 Email: было vs стало</h2>
-        <div class="before-after">
-          <div class="before">
-            <h4>❌ Раньше</h4>
-            <p>Открыть Gmail</p>
-            <p>Прочитать 50 писем</p>
-            <p>Написать ответы</p>
-            <p>~2 часа</p>
+      
+      <!-- 13. DEMO #2 -->
+      <section class="center-slide dark-slide">
+        <div class="emoji">🎬</div>
+        <h1>Демо</h1>
+        <p style="font-size: 24px; margin-top: 16px; opacity: 0.8;">Создам встречу голосом</p>
+      </section>
+      
+      <!-- 14. WTF момент -->
+      <section class="center-slide">
+        <span class="logo">Неожиданное</span>
+        <p class="quote" style="font-size: 24px;">
+          «Сергей, у Эли день рождения через 3 дня.<br>
+          В прошлом году ты дарил книгу про дизайн.<br>
+          Хочешь, найду идеи подарков?»
+        </p>
+        <p style="margin-top: 32px; font-size: 32px;">
+          Я <strong>забыл</strong>. Агент — <strong>нет</strong>.
+        </p>
+        <p class="tiny muted" style="margin-top: 16px;">
+          Календарь + история покупок + память из чатов
+        </p>
+      </section>
+      
+      <!-- 15. ОШИБКИ -->
+      <section>
+        <span class="logo">Честность</span>
+        <div class="section-label">Это не магия</div>
+        <h2>⚠️ Когда агент ошибается</h2>
+        <div class="orange-box">
+          <p style="font-size: 17px; margin: 0;">
+            «Отправь письмо клиенту с подтверждением встречи»<br>
+            <span style="opacity: 0.85;">→ Отправил. Но написал 15:00 вместо 16:00</span>
+          </p>
+        </div>
+        <div class="two-col" style="margin-top: 20px;">
+          <div>
+            <h3 class="orange" style="font-size: 16px;">Типичные ошибки</h3>
+            <ul class="small">
+              <li>Неправильно понял контекст</li>
+              <li>Галлюцинации в данных</li>
+              <li>Слишком буквально выполнил</li>
+            </ul>
           </div>
-          <div class="after">
-            <h4>✅ Сейчас</h4>
-            <p>"Проверь почту, ответь на срочные"</p>
-            <p>~5 минут</p>
+          <div>
+            <h3 class="green" style="font-size: 16px;">Как защищаюсь</h3>
+            <ul class="small">
+              <li>Важные действия — подтверждаю</li>
+              <li>Email/деньги — всегда проверяю</li>
+              <li>Аналитику — сверяю с дашбордом</li>
+            </ul>
           </div>
         </div>
+        <p class="small muted" style="margin-top: 16px;">
+          Агент — джуниор на стероидах. Быстрый, но нужен контроль.
+        </p>
       </section>
-
-      <!-- Пример 2: Календарь -->
-      <section data-auto-animate>
-        <h2>📅 Календарь: было vs стало</h2>
-      </section>
-      <section data-auto-animate>
-        <h2>📅 Календарь: было vs стало</h2>
-        <div class="before-after">
-          <div class="before">
-            <h4>❌ Раньше</h4>
-            <p>Открыть календарь</p>
-            <p>Найти свободный слот</p>
-            <p>Создать событие</p>
-            <p>Добавить участников</p>
+      
+      <!-- 16. КЕЙС: Код -->
+      <section>
+        <span class="logo">Кейс #5</span>
+        <div class="section-label">Разработка</div>
+        <h2>🐙 GitHub и деплой</h2>
+        <div class="two-col">
+          <div class="glass-card">
+            <h3 style="font-size: 16px; margin-bottom: 12px;">Мониторинг</h3>
+            <div class="dark-box" style="margin: 0;">«Проверь CI на backend»</div>
+            <p class="small" style="margin-top: 12px;">→ «✅ passed, 3 мин назад»</p>
           </div>
-          <div class="after">
-            <h4>✅ Сейчас</h4>
-            <p>"Поставь созвон с Никитой на завтра в 15:00"</p>
-            <p>Готово ✓</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Пример 3: Ресерч -->
-      <section>
-        <h2>🔍 Ресерч</h2>
-        <pre><code data-trim class="language-text">
-Ты: "Найди топ-5 конкурентов Notion, 
-     сравни цены и фичи"
-
-OpenClaw:
-✓ Поиск по 20+ источникам
-✓ Структурированная таблица
-✓ Выводы и рекомендации
-        </code></pre>
-        <p class="fragment"><span class="time-saved">3 часа → 2 минуты</span></p>
-      </section>
-
-      <!-- Пример 4: Код -->
-      <section>
-        <h2>💻 Код и автоматизация</h2>
-        <pre><code data-trim data-line-numbers="1|2-3|4-5">
-Ты: "Напиши скрипт, который каждый день 
-     в 9:00 присылает мне курс BTC"
-
-OpenClaw: *пишет код*
-         *настраивает cron*
-         *тестирует*
-         "Готово, завтра проверим!"
-        </code></pre>
-      </section>
-
-      <!-- Skills -->
-      <section>
-        <h2>🧩 Skills — суперспособности</h2>
-        <ul>
-          <li class="fragment"><strong>gog</strong> — Google Workspace (Gmail, Calendar, Drive)</li>
-          <li class="fragment"><strong>github</strong> — Issues, PRs, код-ревью</li>
-          <li class="fragment"><strong>exa</strong> — нейро-поиск по вебу</li>
-          <li class="fragment"><strong>spotify</strong> — управление музыкой</li>
-          <li class="fragment"><strong>weather</strong> — погода без API-ключей</li>
-          <li class="fragment">И ещё 60+ на <a href="https://clawhub.com">clawhub.com</a></li>
-        </ul>
-      </section>
-
-      <!-- Mobile nodes -->
-      <section>
-        <h2>📱 Мобильные ноды</h2>
-        <div style="display: flex; justify-content: center; gap: 60px; margin-top: 40px;">
-          <div style="text-align: center;">
-            <p style="font-size: 3em;">🍎</p>
-            <p>iOS</p>
-          </div>
-          <div style="text-align: center;">
-            <p style="font-size: 3em;">🤖</p>
-            <p>Android</p>
+          <div class="glass-card">
+            <h3 style="font-size: 16px; margin-bottom: 12px;">Дебаг</h3>
+            <div class="dark-box" style="margin: 0;">«Почему стриминг не работает?»</div>
+            <p class="small" style="margin-top: 12px;">→ Читает код, находит баг</p>
           </div>
         </div>
-        <ul style="margin-top: 30px;">
-          <li>Камера и скриншоты</li>
-          <li>Геолокация</li>
-          <li>Уведомления</li>
-          <li>Canvas для UI</li>
-        </ul>
+        <p class="tiny muted" style="margin-top: 20px;">
+          + статус Dokploy · логи · перезапуск · проверка доменов
+        </p>
       </section>
-
-      <!-- Итог: 10 часов -->
+      
+      <!-- 17. КЕЙС: Тексты -->
       <section>
-        <h2>Итого: <span class="time-saved">10+ часов</span></h2>
-        <table style="margin: 40px auto; font-size: 0.8em;">
-          <tr><th>Задача</th><th>Было</th><th>Стало</th><th>Экономия</th></tr>
-          <tr><td>Email</td><td>2ч</td><td>10мин</td><td class="accent">1ч 50мин</td></tr>
-          <tr><td>Календарь</td><td>1ч</td><td>5мин</td><td class="accent">55мин</td></tr>
-          <tr><td>Ресерч</td><td>3ч</td><td>15мин</td><td class="accent">2ч 45мин</td></tr>
-          <tr><td>Код/скрипты</td><td>4ч</td><td>30мин</td><td class="accent">3ч 30мин</td></tr>
-          <tr><td>Рутина</td><td>2ч</td><td>10мин</td><td class="accent">1ч 50мин</td></tr>
-          <tr style="font-weight: bold;"><td>Всего</td><td>12ч</td><td>1ч 10мин</td><td class="time-saved">10ч 50мин</td></tr>
-        </table>
-      </section>
-
-      <!-- Установка -->
-      <section data-background-color="#150E47">
-        <h2 style="color: white;">Начать за 5 минут</h2>
-        <pre style="background: rgba(255,255,255,0.1);"><code data-trim class="language-bash">
-# Установка
-npm install -g openclaw@latest
-
-# Запуск визарда
-openclaw onboard --install-daemon
-
-# Подключить Telegram/WhatsApp
-openclaw channels login
-        </code></pre>
-        <p style="color: rgba(255,255,255,0.8); margin-top: 30px;">
-          docs.openclaw.ai
+        <span class="logo">Кейс #6</span>
+        <div class="section-label">Контент</div>
+        <h2>✍️ Тексты</h2>
+        <div class="three-col">
+          <div class="card">
+            <h3 style="font-size: 15px;">Онбординг</h3>
+            <p class="tiny muted">Переписали приветствие: нейтральный ToV</p>
+          </div>
+          <div class="card">
+            <h3 style="font-size: 15px;">Пейвол</h3>
+            <p class="tiny muted">5 вариантов текста для A/B теста</p>
+          </div>
+          <div class="card">
+            <h3 style="font-size: 15px;">Канал</h3>
+            <p class="tiny muted">@neuroartistproject — посты, структура</p>
+          </div>
+        </div>
+        <p style="margin-top: 24px; font-size: 20px;">
+          Агент знает наш ToV, аудиторию, прошлые тексты.<br>
+          <span class="muted">Не нужно объяснять с нуля.</span>
         </p>
       </section>
-
-      <!-- CTA -->
-      <section data-background-color="#3B82F6">
-        <h2 style="color: white;">Время — главный ресурс</h2>
-        <p style="color: rgba(255,255,255,0.9); font-size: 1.2em;">
-          Верни себе 10 часов каждый день
-        </p>
-        <p style="margin-top: 60px;">
-          <span style="color: white; background: rgba(255,255,255,0.2); padding: 15px 30px; border-radius: 8px;">
-            openclaw.ai
-          </span>
-        </p>
-      </section>
-
-      <!-- Финал -->
+      
+      <!-- 18. Типичный день -->
       <section>
-        <h2>Вопросы?</h2>
-        <p>
-          <small>
-            GitHub: <a href="https://github.com/openclaw/openclaw">openclaw/openclaw</a><br>
-            Discord: <a href="https://discord.com/invite/clawd">discord.com/invite/clawd</a><br>
-            Docs: <a href="https://docs.openclaw.ai">docs.openclaw.ai</a>
-          </small>
+        <span class="logo">Обзор</span>
+        <div class="section-label">24 часа</div>
+        <h2>Типичный день</h2>
+        <div class="timeline-compact" style="font-size: 17px;">
+          <span class="time">08:00</span><span>Дайджест: 3 письма, 2 встречи</span>
+          <span class="time">09:30</span><span>«Встреча с инвестором через 30 мин. Контекст: ...»</span>
+          <span class="time">11:00</span><span>«Как метрики?» → статистика</span>
+          <span class="time">14:00</span><span>«Созвон с Андреем на 16:00» → готово</span>
+          <span class="time">17:00</span><span>«Проверь деплой» → «Всё ✅»</span>
+          <span class="time">20:00</span><span>«У Эли ДР через 3 дня...» → 😱</span>
+          <span class="time">22:40</span><span>«Сделай презу» → 20 минут</span>
+        </div>
+      </section>
+      
+      <!-- 19. РЕЗУЛЬТАТ — Massive number -->
+      <section class="center-slide">
+        <span class="logo">Итог</span>
+        <div class="big-number">10+</div>
+        <h2 style="margin-top: 8px;">часов в неделю</h2>
+        <div class="tag-grid">
+          <div class="tag"><span class="emoji">📊</span> Аналитика: 2ч</div>
+          <div class="tag"><span class="emoji">📅</span> Календарь: 1.5ч</div>
+          <div class="tag"><span class="emoji">✍️</span> Тексты: 2ч</div>
+          <div class="tag"><span class="emoji">🔍</span> Поиск: 1.5ч</div>
+          <div class="tag"><span class="emoji">🐙</span> Код: 2ч</div>
+          <div class="tag"><span class="emoji">✈️</span> Координация: 1ч</div>
+        </div>
+      </section>
+      
+      <!-- 20. КАК НАЧАТЬ — Level cards -->
+      <section>
+        <span class="logo">Практика</span>
+        <div class="section-label">С чего начать</div>
+        <h2>Три уровня</h2>
+        <div class="three-col">
+          <div class="level-card green">
+            <h3>🟢 Просто</h3>
+            <p class="small"><strong>ChatGPT + копипаст</strong></p>
+            <p class="tiny muted">Формулируете задачи текстом. Привычка — главное.</p>
+          </div>
+          <div class="level-card orange">
+            <h3>🟡 Автоматизация</h3>
+            <p class="small"><strong>Zapier / Make / n8n</strong></p>
+            <p class="tiny muted">Email → GPT → Slack. Триггеры.</p>
+          </div>
+          <div class="level-card blue">
+            <h3>🔵 Агент</h3>
+            <p class="small"><strong>OpenClaw / LangChain</strong></p>
+            <p class="tiny muted">Память, интеграции, действия.</p>
+          </div>
+        </div>
+        <p style="margin-top: 24px; font-size: 18px;">
+          <strong>Совет:</strong> выберите задачу, которая бесит. Автоматизируйте. Повторите.
         </p>
       </section>
-
+      
+      <!-- 21. МОЙ СТЕК -->
+      <section>
+        <span class="logo">Практика</span>
+        <div class="section-label">Мой стек</div>
+        <h2>Что использую</h2>
+        <div class="two-col">
+          <div class="glass-card">
+            <h3 style="font-size: 16px; margin-bottom: 12px;">Инфраструктура</h3>
+            <ul class="small">
+              <li><strong>OpenClaw</strong> — фреймворк</li>
+              <li><strong>Claude</strong> — модель</li>
+              <li><strong>Telegram</strong> — интерфейс</li>
+              <li><strong>Ubuntu VPS</strong> — хостинг</li>
+            </ul>
+          </div>
+          <div class="glass-card">
+            <h3 style="font-size: 16px; margin-bottom: 12px;">Интеграции</h3>
+            <ul class="small">
+              <li><strong>gog</strong> — Google Workspace</li>
+              <li><strong>gh</strong> — GitHub CLI</li>
+              <li><strong>PostHog API</strong> — аналитика</li>
+              <li><strong>clawhub.com</strong> — 50+ скиллов</li>
+            </ul>
+          </div>
+        </div>
+        <p class="tiny muted" style="margin-top: 20px;">
+          Напишите — покажу конфиг, дам скиллы
+        </p>
+      </section>
+      
+      <!-- 22. ИИ-Клуб -->
+      <section>
+        <span class="logo">Анонс</span>
+        <h2>🚀 ИИ-Клуб Иннополис</h2>
+        <p style="font-size: 20px;">
+          ОЭЗ «Иннополис» запускает клуб для тех,<br>
+          кто внедряет AI в работу и жизнь.
+        </p>
+        <div class="two-col" style="margin-top: 24px;">
+          <div class="glass-card" style="text-align: center;">
+            <p class="small" style="margin: 0;">🗓 Встречи</p>
+            <p class="tiny muted" style="margin: 4px 0;">Регулярные митапы</p>
+          </div>
+          <div class="glass-card" style="text-align: center;">
+            <p class="small" style="margin: 0;">🛠 Воркшопы</p>
+            <p class="tiny muted" style="margin: 4px 0;">Практика, хакатоны</p>
+          </div>
+        </div>
+        <p style="margin-top: 24px;" class="muted small">Присоединяйтесь — будем делиться опытом</p>
+      </section>
+      
+      <!-- 23. CTA + Q&A — Dark accent -->
+      <section class="center-slide dark-slide">
+        <h2 style="font-size: 2.2em;">Давайте общаться</h2>
+        <div class="cta-grid">
+          <div class="qr-box" style="background: white; padding: 12px;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOgAAADoAQMAAADfZzo7AAAABlBMVEUAAAD///+l2Z/dAAAAAnRSTlP//8i138cAAAAJcEhZcwAACxIAAAsSAdLdfvwAAADXSURBVFiF7ZTBDsMwCEP9/z/N1Ng4rJt6r1taRQkvlxgD6irw0vtTMLgvnDN51LKMZDVKpEeq15nJpkUlnkNZ9QfQ7e3fTSBVU4/vz6zLoR3rxvp3KpEyK6bdcH4cLQsAnbDbPJDq9XugrfTohTDKG7VPFiOVevFwq3E7j1IDl7xdEUqnLJLh604aHbqIn3QKoyw65knzO5N22Avs9a5+HIWeLz3s+FgqLex4qlG5VFPMlQeeQAlsCDdAKh1TjarEUrl9MeogeTKppxlaG4wGj6MX8dK70w/JUliJKCJ7bAAAAABJRU5ErkJggg==" style="width: 116px; height: 116px;"></div>
+          <div>
+            <p style="font-size: 28px; margin: 0;">
+              <strong>Telegram:</strong> @vilfer<br>
+              <strong>Сайт:</strong> croissanstudio.ru
+            </p>
+            <p class="muted small" style="margin-top: 12px;">
+              Покажу настройки, поделюсь скиллами
+            </p>
+          </div>
+        </div>
+        <div style="margin-top: 48px;">
+          <p style="font-size: 2.5em; margin-bottom: 8px;">❓</p>
+          <h2>Вопросы?</h2>
+        </div>
+      </section>
+      
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.min.js"></script>
   <script>
     Reveal.initialize({
       hash: true,
       controls: true,
       progress: true,
-      slideNumber: true,
-      transition: 'slide',
-      plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+      slideNumber: false,
+      transition: 'none',
+      width: 1280,
+      height: 720,
+      margin: 0,
+      center: false
     });
   </script>
 </body>

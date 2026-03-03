@@ -1,6 +1,9 @@
-# OpenClaw Presentation
+# Startup Talk #13 — ИИ-агент
 
-Презентация «OpenClaw: как сэкономить 10 часов в день»
+Презентация «Сотрудник, который не спит»
+
+**Сергей Полин · Croissan Studio**  
+4 марта 2026 · Иннополис
 
 ## 🌐 Демо
 
@@ -9,10 +12,3 @@
 ## Локально
 
 Просто открой `index.html` в браузере — все зависимости подгружаются с CDN.
-
-## Ссылки
-
-- [openclaw.ai](https://openclaw.ai)
-- [docs.openclaw.ai](https://docs.openclaw.ai)
-- [GitHub](https://github.com/openclaw/openclaw)
-- [Discord](https://discord.com/invite/clawd)
