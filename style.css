@@ -513,6 +513,31 @@
   align-items: start;
 }
 
+/* ===== GITHUB SLIDE ===== */
+.github-layout {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  gap: 32px;
+  align-items: start;
+}
+
+.github-layout .chat-mockup {
+  margin: 0;
+  max-width: 100%;
+}
+
+.github-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.github-info code {
+  background: var(--bg);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
 /* ===== EXA SLIDE ===== */
 .exa-layout {
   display: grid;
@@ -1083,6 +1108,12 @@
     height: 140px;
   }
 
+  /* GitHub layout tablet */
+  .github-layout {
+    grid-template-columns: 1fr 160px;
+    gap: 20px;
+  }
+
   /* Exa layout tablet */
   .exa-layout {
     grid-template-columns: 1fr 180px;
@@ -1470,6 +1501,22 @@
   .whoate-qr .qr-box {
     width: 120px;
     height: 120px;
+  }
+
+  /* GitHub layout mobile */
+  .github-layout {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .github-info {
+    flex-direction: row;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .github-info .card {
+    flex: 1;
   }
 
   /* Exa layout mobile */

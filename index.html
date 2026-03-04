@@ -585,23 +585,32 @@
         <span class="logo">Кейс #5</span>
         <div class="section-label">Разработка</div>
         <h2>GitHub и деплой</h2>
-        <div class="chat-mockup">
-          <div class="chat-msg chat-user">Проверь PR #142</div>
-          <div class="chat-msg chat-agent">
-            🔍 Анализирую diff...<br><br>
-            ⚠️ <strong>Найдена SQL-инъекция</strong> в auth.py:47<br>
-            ✅ Тесты пройдены (12/12)<br>
-            📝 Добавил комментарий в PR
+        <div class="github-layout mt-sm">
+          <div class="chat-mockup">
+            <div class="chat-msg chat-user">Проверь PR #142</div>
+            <div class="chat-msg chat-agent">
+              🔍 Анализирую diff...<br><br>
+              ⚠️ <strong>SQL-инъекция</strong> в auth.py:47<br>
+              ✅ Тесты пройдены (12/12)
+            </div>
+            <div class="chat-msg chat-user">Задеплой на staging</div>
+            <div class="chat-msg chat-agent">
+              🚀 Dokploy... ✅ Готово за 2:14
+            </div>
           </div>
-          <div class="chat-msg chat-user">Задеплой на staging</div>
-          <div class="chat-msg chat-agent">
-            🚀 Деплою через Dokploy...<br>
-            ✅ Готово за 2:14. Проверь: staging.app
+          <div class="github-info">
+            <div class="card mb-sm">
+              <h3>Как работает</h3>
+              <ul class="small">
+                <li><code>gh</code> CLI для GitHub</li>
+                <li>Скилл для Dokploy</li>
+                <li>Read — автоматом</li>
+                <li>Write — с подтверждением</li>
+              </ul>
+            </div>
+            <p class="tiny muted">PR review · CI · Deploy · Логи</p>
           </div>
         </div>
-        <p class="tiny muted text-center mt-md">
-          PR review · CI статус · Deploy · Логи · Перезапуск
-        </p>
         <aside class="notes">
           GitHub через gh CLI. PR review с анализом diff, поиск багов.
           Деплой через Dokploy одной командой. Read — автоматом, write — с подтверждением.
