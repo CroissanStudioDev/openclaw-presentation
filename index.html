@@ -72,21 +72,23 @@
       </section>
       
       <!-- 3. КТО Я -->
-      <section>
+      <section style="display: flex; align-items: center; justify-content: center; height: 100%; padding: 60px 80px;">
         <span class="logo">Контекст</span>
-        <div style="display: grid; grid-template-columns: 200px 1fr; gap: 48px; align-items: start; margin-top: 40px;">
-          <img src="assets/photo.jpg" alt="Сергей Полин" style="width: 200px; height: 200px; border-radius: 16px; object-fit: cover;">
+        <div style="display: grid; grid-template-columns: 240px 1fr; gap: 60px; align-items: center; max-width: 900px;">
+          <img src="assets/sergei.jpeg" alt="Сергей Полин" style="width: 240px; height: 240px; border-radius: 20px; object-fit: cover; box-shadow: 0 8px 32px rgba(0,0,0,0.12);">
           <div>
-            <h2 style="margin: 0 0 8px 0;">Сергей Полин</h2>
-            <p class="muted" style="margin: 0 0 24px 0;">CEO Croissan Studio & НейроХудожник</p>
-            <ul style="list-style: none; margin: 0; padding: 0;">
-              <li style="margin-bottom: 12px;"><strong class="accent">Croissan Studio</strong> — внедряем GenAI в бизнес</li>
-              <li style="margin-bottom: 12px;"><strong class="accent">НейроХудожник</strong> — 2.7k MAU, генерация изображений</li>
-              <li style="margin-bottom: 12px;"><strong>~3 месяца</strong> использую агента ежедневно</li>
-            </ul>
-            <p class="mt-lg" style="font-size: var(--fs-md);">
-              Я не продаю вам агента.<br>
-              <span class="muted">Расскажу, как это работает у меня.</span>
+            <h2 style="margin: 0 0 8px 0; font-size: var(--fs-xl);">Сергей Полин</h2>
+            <p class="muted" style="margin: 0 0 32px 0; font-size: var(--fs-base);">CEO Croissan Studio & НейроХудожник</p>
+            <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px;">
+              <div class="card" style="padding: 16px 20px;">
+                <strong class="accent">Croissan Studio</strong> <span class="muted">— интеграция AI в бизнес-процессы</span>
+              </div>
+              <div class="card" style="padding: 16px 20px;">
+                <strong class="accent">НейроХудожник</strong> <span class="muted">— AI-платформа для дизайнеров</span>
+              </div>
+            </div>
+            <p style="font-size: var(--fs-md); margin: 0;">
+              <strong>~3 месяца</strong> использую агента ежедневно
             </p>
           </div>
         </div>
