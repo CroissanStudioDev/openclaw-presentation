@@ -44,7 +44,7 @@
         <span class="logo">Startup Talk #13</span>
         <h1 class="title-hero">OpenClaw: Сотрудник,<br>который не спит</h1>
         <p class="muted slide-footer">
-          Сергей Полин, CEO Croissan Studio<br>
+          Сергей Полин, CEO Croissan Studio & НейроХудожник<br>
           <span class="small">4 марта 2026 · Иннополис</span>
         </p>
         <aside class="notes">
@@ -55,40 +55,39 @@
       <!-- 2. HOOK -->
       <section>
         <span class="logo">Сейчас</span>
-        <p class="quote">
-          «Вчера в 22:40 я написал в Telegram:<br>
-          "Сделай презентацию на завтра,<br>
-          стиль возьми из нашей Figma"»
-        </p>
-        <p class="punchline">
-          Через 20 минут — готовые слайды.<br>
-          <span class="accent">Вы сейчас их смотрите.</span>
-        </p>
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+          <div class="big-number">20 мин</div>
+          <p class="muted mt-sm">от сообщения до готовых слайдов</p>
+          <div class="dark-box mt-xl" style="display: inline-block;">
+            «Сделай презентацию на завтра, стиль возьми из Figma»
+          </div>
+          <p class="mt-lg" style="font-size: var(--fs-md);">
+            ↓<br>
+            <strong class="accent">Вы сейчас их смотрите</strong>
+          </p>
+        </div>
         <aside class="notes">
-          Хук: показать реальный результат. Эта презентация создана агентом.
+          Хук: показать реальный результат. Эта презентация создана агентом за 20 минут.
         </aside>
       </section>
       
       <!-- 3. КТО Я -->
       <section>
         <span class="logo">Контекст</span>
-        <div class="section-label">Кто говорит</div>
-        <h2>Сергей Полин</h2>
-        <div class="two-col">
+        <div style="display: grid; grid-template-columns: 200px 1fr; gap: 48px; align-items: start; margin-top: 40px;">
+          <img src="assets/photo.jpg" alt="Сергей Полин" style="width: 200px; height: 200px; border-radius: 16px; object-fit: cover;">
           <div>
-            <div class="card mb-md">
-              <p><strong>Croissan Studio</strong></p>
-              <p class="small muted">Внедряем GenAI в бизнес</p>
-            </div>
-            <div class="card">
-              <p><strong>НейроХудожник</strong></p>
-              <p class="small muted">2.7k MAU · генерация изображений</p>
-            </div>
-          </div>
-          <div>
-            <p class="muted">Я не продаю вам агента.</p>
-            <p>Расскажу, как это работает <strong>у меня</strong>, и что можно взять <strong>вам</strong>.</p>
-            <p class="small muted">Использую агента ~8 месяцев</p>
+            <h2 style="margin: 0 0 8px 0;">Сергей Полин</h2>
+            <p class="muted" style="margin: 0 0 24px 0;">CEO Croissan Studio & НейроХудожник</p>
+            <ul style="list-style: none; margin: 0; padding: 0;">
+              <li style="margin-bottom: 12px;"><strong class="accent">Croissan Studio</strong> — внедряем GenAI в бизнес</li>
+              <li style="margin-bottom: 12px;"><strong class="accent">НейроХудожник</strong> — 2.7k MAU, генерация изображений</li>
+              <li style="margin-bottom: 12px;"><strong>~3 месяца</strong> использую агента ежедневно</li>
+            </ul>
+            <p class="mt-lg" style="font-size: var(--fs-md);">
+              Я не продаю вам агента.<br>
+              <span class="muted">Расскажу, как это работает у меня.</span>
+            </p>
           </div>
         </div>
         <aside class="notes">
@@ -596,8 +595,7 @@
       hash: true,
       controls: true,
       progress: true,
-      slideNumber: 'c/t',
-      showSlideNumber: 'all',
+      slideNumber: false,
 
       // Navigation
       keyboard: true,
