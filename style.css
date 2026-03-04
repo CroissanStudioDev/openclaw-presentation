@@ -104,8 +104,8 @@
 
 .logo {
   position: absolute;
-  top: 50px;
-  right: 70px;
+  top: 60px;
+  right: 80px;
   font-size: var(--fs-xs);
   font-weight: 500;
   color: var(--text-muted);
@@ -369,6 +369,11 @@
   color: var(--text-light);
 }
 
+/* Video background: make slide transparent so video shows through */
+.dark-slide[data-background-video] {
+  background: transparent !important;
+}
+
 .dark-slide h1, .dark-slide h2, .dark-slide h3 {
   color: var(--text-light);
 }
@@ -402,6 +407,12 @@
 }
 
 .emoji { font-size: 64px; margin-bottom: 16px; }
+
+.slide-footer {
+  position: absolute;
+  bottom: 60px;
+  left: 80px;
+}
 
 /* ===== SPEAKER NOTES ===== */
 .reveal aside.notes {
