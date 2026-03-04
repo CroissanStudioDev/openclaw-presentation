@@ -617,7 +617,36 @@
         </aside>
       </section>
 
-      <!-- 18. КЕЙС: Exa -->
+      <!-- 18. КЕЙС: Скилл из доки -->
+      <section>
+        <span class="logo">Кейс #6</span>
+        <div class="section-label">Расширение</div>
+        <h2>Скилл из документации</h2>
+        <div class="chat-mockup mt-md">
+          <div class="chat-msg chat-user">
+            Собери скилл для Dokploy<br>
+            🔗 docs.dokploy.com/docs/api
+          </div>
+          <div class="chat-msg chat-agent">
+            🔍 Читаю документацию...<br><br>
+            📦 Создал скилл с 12 командами:<br>
+            • deploy, restart, logs<br>
+            • status, domains, env<br><br>
+            ✅ Установлен и готов к работе
+          </div>
+          <div class="chat-msg chat-user">Покажи статус backend</div>
+          <div class="chat-msg chat-agent">
+            🟢 backend: running (2h 14m)<br>
+            CPU: 12% · RAM: 340MB
+          </div>
+        </div>
+        <aside class="notes">
+          Можно скинуть документацию API и попросить собрать скилл.
+          Агент сам парсит доку, создаёт команды, устанавливает.
+        </aside>
+      </section>
+
+      <!-- 19. КЕЙС: Exa -->
       <section>
         <span class="logo">Кейс #6</span>
         <div class="section-label">Ресёрч</div>
@@ -664,29 +693,39 @@
 
       <!-- 19. КЕЙС: Тексты -->
       <section>
-        <span class="logo">Кейс #6</span>
+        <span class="logo">Кейс #7</span>
         <div class="section-label">Контент</div>
-        <h2>Тексты</h2>
-        <div class="three-col">
-          <div class="card">
-            <h3>Онбординг</h3>
-            <p class="tiny muted">Переписали приветствие: нейтральный ToV</p>
+        <h2>Тексты для продукта</h2>
+        <div class="texts-layout mt-sm">
+          <div class="chat-mockup">
+            <div class="chat-msg chat-user">Напиши пуш про новую фичу — генерация видео</div>
+            <div class="chat-msg chat-agent">
+              📱 Вариант 1:<br>
+              «Теперь НейроХудожник делает видео! 🎬<br>
+              Попробуй первым — ссылка в профиле»<br><br>
+              📱 Вариант 2 (короче):<br>
+              «Видео из текста за 30 сек. Уже в боте →»
+            </div>
+            <div class="chat-msg chat-user">Первый, но без эмодзи</div>
+            <div class="chat-msg chat-agent">
+              ✅ Готово, отправил в канал
+            </div>
           </div>
-          <div class="card">
-            <h3>Пейвол</h3>
-            <p class="tiny muted">5 вариантов текста для A/B теста</p>
-          </div>
-          <div class="card">
-            <h3>Канал</h3>
-            <p class="tiny muted">@neuroartistproject — посты, структура</p>
+          <div class="texts-info">
+            <div class="card">
+              <h3>Почему работает</h3>
+              <ul class="small">
+                <li>Знает наш ToV</li>
+                <li>Помнит прошлые посты</li>
+                <li>Понимает аудиторию</li>
+                <li>Сразу публикует</li>
+              </ul>
+            </div>
           </div>
         </div>
-        <p class="mt-md">
-          Агент знает наш ToV, аудиторию, прошлые тексты.<br>
-          <span class="muted">Не нужно объяснять с нуля.</span>
-        </p>
         <aside class="notes">
           Контент: агент знает ToV, историю текстов, целевую аудиторию.
+          Может сразу опубликовать через Telegram skill.
         </aside>
       </section>
       
@@ -695,14 +734,79 @@
         <span class="logo">Обзор</span>
         <div class="section-label">24 часа</div>
         <h2>Типичный день</h2>
-        <div class="timeline">
-          <span class="time">08:00</span><span>Дайджест: 3 письма, 2 встречи</span>
-          <span class="time">09:30</span><span>«Встреча с инвестором через 30 мин. Контекст: ...»</span>
-          <span class="time">11:00</span><span>«Как метрики?» → статистика</span>
-          <span class="time">14:00</span><span>«Созвон с Андреем на 16:00» → готово</span>
-          <span class="time">17:00</span><span>«Проверь деплой» → «Всё ✅»</span>
-          <span class="time">20:00</span><span>«У Эли ДР через 3 дня...»</span>
-          <span class="time">22:40</span><span>«Сделай презу» → 20 минут</span>
+        <div class="day-layout">
+          <div class="day-timeline">
+            <div class="day-item">
+              <span class="day-time">08:00</span>
+              <span class="day-dot"></span>
+              <div class="day-card">
+                <span class="day-icon">📬</span>
+                <span class="day-text">Дайджест: 3 письма, 2 встречи</span>
+              </div>
+            </div>
+            <div class="day-item">
+              <span class="day-time">09:30</span>
+              <span class="day-dot"></span>
+              <div class="day-card">
+                <span class="day-icon">📅</span>
+                <span class="day-text">Встреча через 30 мин + контекст</span>
+              </div>
+            </div>
+            <div class="day-item">
+              <span class="day-time">11:00</span>
+              <span class="day-dot"></span>
+              <div class="day-card">
+                <span class="day-icon">📊</span>
+                <span class="day-text">«Как метрики?» → DAU 221</span>
+              </div>
+            </div>
+            <div class="day-item">
+              <span class="day-time">14:00</span>
+              <span class="day-dot"></span>
+              <div class="day-card">
+                <span class="day-icon">🤝</span>
+                <span class="day-text">«Созвон на 16:00» → готово</span>
+              </div>
+            </div>
+            <div class="day-item">
+              <span class="day-time">17:00</span>
+              <span class="day-dot"></span>
+              <div class="day-card">
+                <span class="day-icon">🚀</span>
+                <span class="day-text">«Проверь деплой» → всё ✅</span>
+              </div>
+            </div>
+            <div class="day-item">
+              <span class="day-time">20:00</span>
+              <span class="day-dot"></span>
+              <div class="day-card day-card-highlight">
+                <span class="day-icon">🎂</span>
+                <span class="day-text">«У Эли ДР через 3 дня...»</span>
+              </div>
+            </div>
+            <div class="day-item">
+              <span class="day-time">22:40</span>
+              <span class="day-dot"></span>
+              <div class="day-card">
+                <span class="day-icon">📽</span>
+                <span class="day-text">Презентация → 20 мин</span>
+              </div>
+            </div>
+          </div>
+          <div class="day-summary">
+            <div class="day-stat">
+              <div class="day-stat-num">7</div>
+              <div class="day-stat-label">задач</div>
+            </div>
+            <div class="day-stat">
+              <div class="day-stat-num">3</div>
+              <div class="day-stat-label">проактивных</div>
+            </div>
+            <div class="day-stat">
+              <div class="day-stat-num">~2ч</div>
+              <div class="day-stat-label">сэкономлено</div>
+            </div>
+          </div>
         </div>
         <aside class="notes">
           Обзор типичного дня с агентом. От утреннего дайджеста до вечерних задач.
@@ -710,24 +814,63 @@
       </section>
       
       <!-- 20. РЕЗУЛЬТАТ -->
-      <section class="center-slide">
+      <section>
         <span class="logo">Итог</span>
-        <div class="big-number">10+</div>
-        <h2>часов в неделю</h2>
-        <div class="tag-grid">
-          <div class="tag">📊 Аналитика: 2ч</div>
-          <div class="tag">📅 Календарь: 1.5ч</div>
-          <div class="tag">✍️ Тексты: 2ч</div>
-          <div class="tag">🔍 Поиск: 1.5ч</div>
-          <div class="tag">🐙 Код: 2ч</div>
-          <div class="tag">✈️ Координация: 1ч</div>
+        <div class="section-label">Экономия времени</div>
+        <h2>10+ часов в неделю</h2>
+        <div class="savings-layout">
+          <div class="savings-bars">
+            <div class="savings-row">
+              <span class="savings-label">📊 Аналитика</span>
+              <div class="savings-bar" style="--bar-width: 100%"></div>
+              <span class="savings-value">2ч</span>
+            </div>
+            <div class="savings-row">
+              <span class="savings-label">🐙 Код и деплой</span>
+              <div class="savings-bar" style="--bar-width: 100%"></div>
+              <span class="savings-value">2ч</span>
+            </div>
+            <div class="savings-row">
+              <span class="savings-label">✍️ Тексты</span>
+              <div class="savings-bar" style="--bar-width: 100%"></div>
+              <span class="savings-value">2ч</span>
+            </div>
+            <div class="savings-row">
+              <span class="savings-label">📅 Календарь</span>
+              <div class="savings-bar" style="--bar-width: 75%"></div>
+              <span class="savings-value">1.5ч</span>
+            </div>
+            <div class="savings-row">
+              <span class="savings-label">🔍 Ресёрч</span>
+              <div class="savings-bar" style="--bar-width: 75%"></div>
+              <span class="savings-value">1.5ч</span>
+            </div>
+            <div class="savings-row">
+              <span class="savings-label">✈️ Координация</span>
+              <div class="savings-bar" style="--bar-width: 50%"></div>
+              <span class="savings-value">1ч</span>
+            </div>
+          </div>
+          <div class="savings-total">
+            <div class="savings-big">10+</div>
+            <div class="savings-unit">часов</div>
+            <div class="savings-note">= 1 рабочий день</div>
+          </div>
         </div>
         <aside class="notes">
           Итог: 10+ часов экономии в неделю. Разбивка по категориям.
         </aside>
       </section>
-      
-      <!-- 21. КАК НАЧАТЬ -->
+
+      <!-- 21. СТАТИСТИКА -->
+      <section class="center-slide">
+        <img src="assets/stats.jpg" alt="Статистика использования" class="stats-image">
+        <aside class="notes">
+          Реальная статистика использования агента.
+        </aside>
+      </section>
+
+      <!-- 22. КАК НАЧАТЬ -->
       <section>
         <span class="logo">Практика</span>
         <div class="section-label">С чего начать</div>
@@ -745,7 +888,7 @@
           </div>
           <div class="level-card blue">
             <h3>🔵 Агент</h3>
-            <p class="small"><strong>OpenClaw / LangChain</strong></p>
+            <p class="small"><strong>OpenClaw</strong></p>
             <p class="tiny muted">Память, интеграции, действия.</p>
           </div>
         </div>
@@ -762,27 +905,37 @@
         <span class="logo">Практика</span>
         <div class="section-label">Мой стек</div>
         <h2>Что использую</h2>
-        <div class="two-col">
-          <div class="card">
-            <h3>Инфраструктура</h3>
-            <ul class="small">
-              <li><strong>OpenClaw</strong> — фреймворк</li>
-              <li><strong>Claude</strong> — модель</li>
-              <li><strong>Telegram</strong> — интерфейс</li>
-              <li><strong>Ubuntu VPS</strong> — хостинг</li>
-            </ul>
+        <div class="stack-card">
+          <div class="stack-item">
+            <span class="stack-icon">🦞</span>
+            <div>
+              <strong>OpenClaw</strong>
+              <span class="muted">— фреймворк</span>
+            </div>
           </div>
-          <div class="card">
-            <h3>Интеграции</h3>
-            <ul class="small">
-              <li><strong>gog</strong> — Google Workspace</li>
-              <li><strong>gh</strong> — GitHub CLI</li>
-              <li><strong>PostHog API</strong> — аналитика</li>
-              <li><strong>clawhub.com</strong> — 50+ скиллов</li>
-            </ul>
+          <div class="stack-item">
+            <span class="stack-icon">🧠</span>
+            <div>
+              <strong>Claude Opus 4.6</strong>
+              <span class="muted">— модель</span>
+            </div>
+          </div>
+          <div class="stack-item">
+            <span class="stack-icon">💬</span>
+            <div>
+              <strong>Telegram</strong>
+              <span class="muted">— интерфейс</span>
+            </div>
+          </div>
+          <div class="stack-item">
+            <span class="stack-icon">☁️</span>
+            <div>
+              <strong>Azure VPS</strong>
+              <span class="muted">— хостинг</span>
+            </div>
           </div>
         </div>
-        <p class="tiny muted mt-lg">
+        <p class="tiny muted mt-lg text-center">
           Напишите — покажу конфиг, дам скиллы
         </p>
         <aside class="notes">

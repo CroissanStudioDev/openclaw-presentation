@@ -513,6 +513,235 @@
   align-items: start;
 }
 
+/* ===== STACK CARD ===== */
+.stack-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 400px;
+  margin: 24px auto 0;
+}
+
+.stack-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--white);
+  padding: 16px 24px;
+  border-radius: var(--radius-sm);
+}
+
+.stack-icon {
+  font-size: 24px;
+}
+
+.stack-item strong {
+  font-size: var(--fs-base);
+}
+
+.stack-item .muted {
+  font-size: var(--fs-sm);
+}
+
+/* ===== STATS IMAGE ===== */
+.stats-image {
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== SAVINGS SLIDE ===== */
+.savings-layout {
+  display: grid;
+  grid-template-columns: 1fr 160px;
+  gap: 40px;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.savings-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.savings-row {
+  display: grid;
+  grid-template-columns: 120px 1fr 40px;
+  align-items: center;
+  gap: 12px;
+}
+
+.savings-label {
+  font-size: 13px;
+  color: var(--text);
+  text-align: right;
+}
+
+.savings-bar {
+  height: 24px;
+  background: linear-gradient(90deg, var(--accent) 0%, #6366f1 100%);
+  border-radius: var(--radius-sm);
+  width: var(--bar-width, 100%);
+}
+
+.savings-value {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.savings-total {
+  background: var(--white);
+  padding: 24px;
+  border-radius: var(--radius-md);
+  text-align: center;
+  border: 2px solid var(--accent);
+}
+
+.savings-big {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.savings-unit {
+  font-size: var(--fs-base);
+  color: var(--text);
+  margin-top: 4px;
+}
+
+.savings-note {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+/* ===== DAY TIMELINE ===== */
+.day-layout {
+  display: grid;
+  grid-template-columns: 1fr 140px;
+  gap: 32px;
+  align-items: start;
+  margin-top: 16px;
+}
+
+.day-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  padding-left: 70px;
+}
+
+.day-timeline::before {
+  content: '';
+  position: absolute;
+  left: 96px;
+  top: 16px;
+  bottom: 16px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent), var(--green));
+  border-radius: 1px;
+}
+
+.day-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+
+.day-time {
+  position: absolute;
+  left: -70px;
+  width: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-align: right;
+}
+
+.day-dot {
+  width: 10px;
+  height: 10px;
+  background: var(--white);
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.day-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--white);
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  flex: 1;
+}
+
+.day-card-highlight {
+  border-left: 3px solid var(--accent);
+  background: linear-gradient(90deg, rgba(39,39,202,0.05) 0%, var(--white) 100%);
+}
+
+.day-icon {
+  font-size: 16px;
+}
+
+.day-text {
+  font-size: 13px;
+  color: var(--text);
+}
+
+.day-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.day-stat {
+  background: var(--white);
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+.day-stat-num {
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.day-stat-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ===== TEXTS SLIDE ===== */
+.texts-layout {
+  display: grid;
+  grid-template-columns: 1fr 180px;
+  gap: 32px;
+  align-items: start;
+}
+
+.texts-layout .chat-mockup {
+  margin: 0;
+  max-width: 100%;
+}
+
+.texts-info {
+  display: flex;
+  flex-direction: column;
+}
+
 /* ===== GITHUB SLIDE ===== */
 .github-layout {
   display: grid;
@@ -1108,6 +1337,72 @@
     height: 140px;
   }
 
+  /* Savings tablet */
+  .savings-layout {
+    grid-template-columns: 1fr 140px;
+    gap: 24px;
+  }
+
+  .savings-row {
+    grid-template-columns: 100px 1fr 36px;
+    gap: 10px;
+  }
+
+  .savings-label {
+    font-size: 12px;
+  }
+
+  .savings-bar {
+    height: 20px;
+  }
+
+  .savings-big {
+    font-size: 40px;
+  }
+
+  /* Day timeline tablet */
+  .day-layout {
+    grid-template-columns: 1fr 120px;
+    gap: 20px;
+  }
+
+  .day-timeline {
+    gap: 6px;
+    padding-left: 60px;
+  }
+
+  .day-timeline::before {
+    left: 86px;
+  }
+
+  .day-time {
+    left: -60px;
+    width: 45px;
+    font-size: 11px;
+  }
+
+  .day-card {
+    padding: 6px 10px;
+  }
+
+  .day-text {
+    font-size: 12px;
+  }
+
+  .day-stat {
+    padding: 12px;
+  }
+
+  .day-stat-num {
+    font-size: var(--fs-lg);
+  }
+
+  /* Texts layout tablet */
+  .texts-layout {
+    grid-template-columns: 1fr 150px;
+    gap: 20px;
+  }
+
   /* GitHub layout tablet */
   .github-layout {
     grid-template-columns: 1fr 160px;
@@ -1501,6 +1796,109 @@
   .whoate-qr .qr-box {
     width: 120px;
     height: 120px;
+  }
+
+  /* Savings mobile */
+  .savings-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .savings-total {
+    order: -1;
+    padding: 16px;
+  }
+
+  .savings-big {
+    font-size: 36px;
+  }
+
+  .savings-bars {
+    gap: 8px;
+  }
+
+  .savings-row {
+    grid-template-columns: 90px 1fr 32px;
+    gap: 8px;
+  }
+
+  .savings-label {
+    font-size: 11px;
+  }
+
+  .savings-bar {
+    height: 16px;
+  }
+
+  .savings-value {
+    font-size: 11px;
+  }
+
+  /* Day timeline mobile */
+  .day-layout {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .day-timeline {
+    padding-left: 45px;
+    gap: 6px;
+  }
+
+  .day-timeline::before {
+    left: 71px;
+  }
+
+  .day-time {
+    left: -45px;
+    width: 38px;
+    font-size: 10px;
+  }
+
+  .day-dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .day-card {
+    padding: 6px 8px;
+    gap: 6px;
+  }
+
+  .day-icon {
+    font-size: 12px;
+  }
+
+  .day-text {
+    font-size: 10px;
+  }
+
+  .day-summary {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .day-stat {
+    padding: 10px 16px;
+    flex: 1;
+  }
+
+  .day-stat-num {
+    font-size: var(--fs-base);
+  }
+
+  .day-stat-label {
+    font-size: 9px;
+  }
+
+  /* Texts layout mobile */
+  .texts-layout {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .texts-info .card {
+    width: 100%;
   }
 
   /* GitHub layout mobile */
