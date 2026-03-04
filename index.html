@@ -4,378 +4,31 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Сотрудник, который не спит — Startup Talk #13</title>
-  
+
   <!-- SEO & Open Graph -->
   <meta name="description" content="Презентация о том, как ИИ-агент экономит 10+ часов в неделю. Сергей Полин, Croissan Studio.">
   <meta property="og:title" content="Сотрудник, который не спит — Startup Talk #13">
   <meta property="og:description" content="Как ИИ-агент экономит 10+ часов в неделю">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://croissanstudiodev.github.io/openclaw-presentation/">
+  <meta property="og:image" content="https://croissanstudiodev.github.io/openclaw-presentation/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  
+  <meta name="twitter:image" content="https://croissanstudiodev.github.io/openclaw-presentation/og-image.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
   <!-- Preconnect for faster font loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-  
-  <style>
-    /* ===== FIGMA DESIGN TOKENS ===== */
-    :root {
-      /* Colors from Figma KP */
-      --bg: #ebebeb;
-      --bg-dark: #26242c;
-      --text: #26242c;
-      --text-light: #ffffff;
-      --text-muted: #89888c;
-      --accent: #2727CA;  /* Figma exact */
-      --white: #ffffff;
-      --green: #34c759;
-      --red: #ff3b30;
-      --orange: #ff9500;
-      
-      /* Border radius from Figma */
-      --radius-sm: 9px;
-      --radius-md: 18px;
-      --radius-lg: 20px;
-      
-      /* Font sizes from Figma (scaled for 1280x720) */
-      --fs-xs: 14px;
-      --fs-sm: 16px;
-      --fs-base: 18px;
-      --fs-md: 24px;
-      --fs-lg: 32px;
-      --fs-xl: 48px;
-      --fs-2xl: 64px;
-    }
-    
-    /* ===== BASE ===== */
-    .reveal-viewport { background: var(--bg); }
-    
-    .reveal {
-      font-family: "Inter", -apple-system, sans-serif;
-      font-size: var(--fs-base);
-      font-weight: 400;
-      color: var(--text);
-    }
-    
-    .reveal .slides section {
-      text-align: left;
-      padding: 60px 80px;
-      box-sizing: border-box;
-      height: 100%;
-    }
-    
-    /* ===== TYPOGRAPHY ===== */
-    .reveal h1 {
-      font-family: "Inter", sans-serif;
-      font-size: var(--fs-2xl);
-      font-weight: 700;
-      color: var(--text);
-      margin: 0 0 24px 0;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-    }
-    
-    .reveal h2 {
-      font-family: "Inter", sans-serif;
-      font-size: var(--fs-lg);
-      font-weight: 700;
-      color: var(--text);
-      margin: 0 0 20px 0;
-      line-height: 1.15;
-      letter-spacing: -0.01em;
-    }
-    
-    .reveal h3 {
-      font-family: "Inter", sans-serif;
-      font-size: var(--fs-base);
-      font-weight: 600;
-      color: var(--text);
-      margin: 0 0 12px 0;
-    }
-    
-    .reveal p {
-      font-size: var(--fs-base);
-      line-height: 1.5;
-      margin: 12px 0;
-    }
-    
-    .reveal li {
-      font-size: var(--fs-sm);
-      margin: 8px 0;
-      line-height: 1.4;
-    }
-    
-    .reveal ul { margin-left: 1.2em; }
-    
-    /* ===== UI ELEMENTS ===== */
-    .reveal .progress { background: rgba(0,0,0,0.08); height: 4px; }
-    .reveal .progress span { background: var(--accent); }
-    .reveal .controls { color: var(--accent); }
+  <link rel="stylesheet" href="style.css">
 
-    .logo {
-      position: absolute;
-      top: 50px;
-      right: 70px;
-      font-size: var(--fs-xs);
-      font-weight: 500;
-      color: var(--text-muted);
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-    
-    .section-label {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--accent);
-      margin-bottom: 12px;
-      font-weight: 600;
-    }
-    
-    /* ===== UTILITY CLASSES ===== */
-    .muted { color: var(--text-muted); }
-    .accent { color: var(--accent); }
-    .green { color: var(--green); }
-    .red { color: var(--red); }
-    .orange { color: var(--orange); }
-    .small { font-size: var(--fs-xs); }
-    .tiny { font-size: 12px; }
-    
-    .big-number {
-      font-size: 96px;
-      font-weight: 700;
-      color: var(--accent);
-      line-height: 1;
-      letter-spacing: -0.03em;
-    }
-    
-    .center-slide {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    
-    /* ===== LAYOUTS ===== */
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      margin-top: 20px;
-    }
-    
-    .three-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 24px;
-      margin-top: 20px;
-    }
-    
-    .bento-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 20px;
-      height: 400px;
-    }
-    
-    .bento-item {
-      background: var(--white);
-      border-radius: var(--radius-sm);
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
-    
-    .bento-item .icon { font-size: 24px; margin-bottom: 6px; }
-    .bento-item .label { font-size: 12px; font-weight: 500; }
-    
-    .bento-item.large { grid-column: span 2; grid-row: span 2; }
-    .bento-item.wide { grid-column: span 2; }
-    
-    /* ===== CARDS ===== */
-    .card {
-      background: var(--white);
-      padding: 20px;
-      border-radius: var(--radius-sm);
-    }
-    
-    .card-accent {
-      background: var(--white);
-      padding: 20px;
-      border-radius: var(--radius-sm);
-      border-left: 4px solid var(--accent);
-    }
-    
-    .dark-box {
-      background: var(--bg-dark);
-      color: var(--text-light);
-      padding: 16px 24px;
-      border-radius: var(--radius-sm);
-      margin: 12px 0;
-      font-size: var(--fs-sm);
-    }
-    
-    .orange-box {
-      background: var(--orange);
-      color: var(--text-light);
-      padding: 16px 24px;
-      border-radius: var(--radius-sm);
-      margin: 12px 0;
-    }
-    
-    /* ===== STATS ===== */
-    .stat-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin: 24px 0;
-    }
-    
-    .stat-card {
-      background: var(--white);
-      padding: 20px 12px;
-      border-radius: var(--radius-sm);
-      text-align: center;
-    }
-    
-    .stat-card .num { 
-      font-size: var(--fs-xl);
-      font-weight: 700;
-      color: var(--accent);
-      line-height: 1;
-    }
-    
-    .stat-card .label { 
-      font-size: var(--fs-xs);
-      color: var(--text-muted);
-      margin-top: 8px;
-    }
-    
-    /* ===== TIMELINE ===== */
-    .timeline {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 6px 20px;
-      margin: 16px 0;
-      font-size: var(--fs-sm);
-    }
-    
-    .timeline .time { 
-      font-weight: 600;
-      color: var(--accent);
-      font-size: var(--fs-xs);
-    }
-    
-    /* ===== QUOTE ===== */
-    .quote {
-      font-size: var(--fs-md);
-      font-weight: 500;
-      border-left: 4px solid var(--accent);
-      padding-left: 24px;
-      margin: 24px 0;
-      line-height: 1.4;
-    }
-    
-    .punchline {
-      font-size: var(--fs-md);
-      font-weight: 600;
-      margin: 24px 0;
-      line-height: 1.35;
-    }
-    
-    /* ===== TAGS ===== */
-    .tag-grid {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 24px;
-    }
-    
-    .tag {
-      background: var(--white);
-      padding: 8px 16px;
-      border-radius: var(--radius-lg);
-      font-size: var(--fs-xs);
-      font-weight: 500;
-    }
-    
-    /* ===== LEVEL CARDS ===== */
-    .level-card {
-      background: var(--white);
-      padding: 20px;
-      border-radius: var(--radius-sm);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .level-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-    }
-    
-    .level-card.green::before { background: var(--green); }
-    .level-card.orange::before { background: var(--orange); }
-    .level-card.blue::before { background: var(--accent); }
-    
-    /* ===== DARK SLIDE ===== */
-    .dark-slide {
-      background: var(--bg-dark) !important;
-      color: var(--text-light);
-    }
-    
-    .dark-slide h1, .dark-slide h2, .dark-slide h3 {
-      color: var(--text-light);
-    }
-    
-    .dark-slide .logo { color: rgba(255,255,255,0.5); }
-    .dark-slide .muted { color: rgba(255,255,255,0.6); }
-    
-    /* ===== CTA ===== */
-    .cta-grid {
-      display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 28px;
-      align-items: center;
-      margin-top: 28px;
-    }
-    
-    .qr-box {
-      width: 120px;
-      height: 120px;
-      background: var(--white);
-      border-radius: var(--radius-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 8px;
-    }
-    
-    .qr-box img {
-      width: 100%;
-      height: 100%;
-    }
-    
-    .emoji { font-size: 64px; margin-bottom: 16px; }
-    
-    /* ===== PRINT / PDF ===== */
-    @media print {
-      .reveal .slides section {
-        page-break-after: always;
-      }
-    }
-  </style>
 </head>
 <body>
   <div class="reveal">
@@ -384,11 +37,14 @@
       <!-- 1. TITLE -->
       <section class="center-slide dark-slide">
         <span class="logo">Startup Talk #13</span>
-        <h1 style="font-size: 72px; letter-spacing: -0.03em;">Сотрудник,<br>который не спит</h1>
-        <p class="muted" style="margin-top: 40px;">
+        <h1 class="title-hero">Сотрудник,<br>который не спит</h1>
+        <p class="muted mt-xl">
           Сергей Полин · Croissan Studio<br>
           <span class="small">4 марта 2026 · Иннополис</span>
         </p>
+        <aside class="notes">
+          Приветствие. Представиться. Спросить, кто уже использует ИИ-агентов.
+        </aside>
       </section>
       
       <!-- 2. HOOK -->
@@ -403,6 +59,9 @@
           Через 20 минут — готовые слайды.<br>
           <span class="accent">Вы сейчас их смотрите.</span>
         </p>
+        <aside class="notes">
+          Хук: показать реальный результат. Эта презентация создана агентом.
+        </aside>
       </section>
       
       <!-- 3. КТО Я -->
@@ -412,21 +71,24 @@
         <h2>Сергей Полин</h2>
         <div class="two-col">
           <div>
-            <div class="card" style="margin-bottom: 12px;">
-              <p style="margin: 0;"><strong>Croissan Studio</strong></p>
-              <p class="small muted" style="margin: 4px 0;">Внедряем GenAI в бизнес</p>
+            <div class="card mb-md">
+              <p><strong>Croissan Studio</strong></p>
+              <p class="small muted">Внедряем GenAI в бизнес</p>
             </div>
             <div class="card">
-              <p style="margin: 0;"><strong>НейроХудожник</strong></p>
-              <p class="small muted" style="margin: 4px 0;">2.7k MAU · генерация изображений</p>
+              <p><strong>НейроХудожник</strong></p>
+              <p class="small muted">2.7k MAU · генерация изображений</p>
             </div>
           </div>
           <div>
-            <p class="muted" style="margin-top: 0;">Я не продаю вам агента.</p>
+            <p class="muted">Я не продаю вам агента.</p>
             <p>Расскажу, как это работает <strong>у меня</strong>, и что можно взять <strong>вам</strong>.</p>
             <p class="small muted">Использую агента ~8 месяцев</p>
           </div>
         </div>
+        <aside class="notes">
+          Контекст: кто я, чем занимаюсь. Важно: это не продажа, а sharing опыта.
+        </aside>
       </section>
       
       <!-- 4. ЧТО ТАКОЕ АГЕНТ -->
@@ -434,11 +96,11 @@
         <span class="logo">Основы</span>
         <div class="section-label">Главное отличие</div>
         <h2>Агент ≠ ChatGPT</h2>
-        <div class="two-col" style="margin-top: 28px;">
+        <div class="two-col mt-lg">
           <div class="card">
-            <h3 style="opacity: 0.5;">ChatGPT</h3>
+            <h3 class="muted">ChatGPT</h3>
             <p><strong>Отвечает</strong> на вопросы</p>
-            <div class="dark-box" style="background: #f0f0f0; color: var(--text);">
+            <div class="light-box">
               «Как создать событие в календаре?»
             </div>
             <p class="small muted">→ Инструкция из 5 шагов</p>
@@ -452,6 +114,9 @@
             <p class="small green">→ Готово ✓</p>
           </div>
         </div>
+        <aside class="notes">
+          Ключевое отличие: ChatGPT даёт инструкции, агент выполняет действия сам.
+        </aside>
       </section>
       
       <!-- 5. МОЙ СТЕК — Bento Grid -->
@@ -460,16 +125,16 @@
         <div class="section-label">Интеграции</div>
         <h2>К чему подключён агент</h2>
         <div class="bento-grid">
-          <div class="bento-item large" style="background: var(--accent); color: white;">
+          <div class="bento-item large accent-bg">
             <div class="icon">🤖</div>
-            <div class="label" style="font-size: 14px; font-weight: 600;">Telegram</div>
-            <div class="tiny" style="opacity: 0.8;">Голос работает</div>
+            <div class="label">Telegram</div>
+            <div class="tiny muted">Голос работает</div>
           </div>
           <div class="bento-item"><div class="icon">📧</div><div class="label">Gmail</div></div>
           <div class="bento-item"><div class="icon">📅</div><div class="label">Calendar</div></div>
           <div class="bento-item"><div class="icon">📁</div><div class="label">Drive</div></div>
           <div class="bento-item"><div class="icon">📊</div><div class="label">PostHog</div></div>
-          <div class="bento-item wide" style="background: var(--bg-dark); color: white;">
+          <div class="bento-item wide dark-bg">
             <div class="icon">🐙</div>
             <div class="label">GitHub + Dokploy</div>
           </div>
@@ -478,7 +143,10 @@
           <div class="bento-item"><div class="icon">🌐</div><div class="label">Web</div></div>
           <div class="bento-item"><div class="icon">☀️</div><div class="label">Weather</div></div>
         </div>
-        <p class="tiny muted" style="margin-top: 12px; text-align: center;">+50 скиллов на clawhub.com</p>
+        <p class="tiny muted mt-sm text-center">+50 скиллов на clawhub.com</p>
+        <aside class="notes">
+          Обзор интеграций. Telegram — основной интерфейс, голосовые сообщения работают.
+        </aside>
       </section>
       
       <!-- 6. МЕТА-КЕЙС -->
@@ -489,13 +157,16 @@
         <div class="dark-box">
           «Создай презентацию для Startup Talk, стиль возьми из Figma»
         </div>
-        <div class="timeline" style="margin-top: 20px;">
+        <div class="timeline mt-md">
           <span class="time">+2 мин</span><span>Figma API → цвета, шрифты</span>
           <span class="time">+5 мин</span><span>CSS-тема для Reveal.js</span>
           <span class="time">+10 мин</span><span>Кейсы из истории чатов</span>
           <span class="time">+3 мин</span><span>Экспорт в PDF</span>
         </div>
-        <p style="margin-top: 24px;"><strong style="font-size: var(--fs-md);">20 минут.</strong> <span class="muted">Одно сообщение.</span></p>
+        <p class="mt-lg"><strong class="accent">20 минут.</strong> <span class="muted">Одно сообщение.</span></p>
+        <aside class="notes">
+          Мета-кейс: эта презентация создана за 20 минут. Показать timeline создания.
+        </aside>
       </section>
       
       <!-- 7. КЕЙС: Аналитика -->
@@ -523,6 +194,9 @@
           </div>
         </div>
         <p class="small muted">Раньше: PostHog → дашборд → фильтры → экспорт. <span class="red">15 минут.</span></p>
+        <aside class="notes">
+          Пример ежедневного использования. Аналитика за 30 секунд vs 15 минут.
+        </aside>
       </section>
       
       <!-- 8. КЕЙС: Аналитика глубже -->
@@ -531,7 +205,7 @@
         <div class="section-label">Глубже</div>
         <h2>Воронка по источникам</h2>
         <div class="dark-box">«Покажи конверсию по рекламным каналам за 30 дней»</div>
-        <div class="two-col" style="margin-top: 20px;">
+        <div class="two-col mt-md">
           <div class="card">
             <h3>landing_pocket</h3>
             <p class="small">420 → 380 → 95 → <strong class="green">42</strong></p>
@@ -543,14 +217,20 @@
             <p class="small muted">CR: 4.8%</p>
           </div>
         </div>
-        <p class="tiny muted" style="margin-top: 16px;">Вручную: дока → SQL → отладка → оформление. <span class="red">30-60 мин.</span></p>
+        <p class="tiny muted mt-lg">Вручную: дока → SQL → отладка → оформление. <span class="red">30-60 мин.</span></p>
+        <aside class="notes">
+          Сложные запросы к аналитике. Агент пишет SQL, обрабатывает данные.
+        </aside>
       </section>
       
       <!-- 9. DEMO #1 -->
       <section class="center-slide dark-slide">
         <div class="emoji">🎬</div>
         <h1>Демо</h1>
-        <p style="opacity: 0.7;">Живой запрос к аналитике</p>
+        <p class="muted">Живой запрос к аналитике</p>
+        <aside class="notes">
+          ДЕМО: Открыть Telegram, спросить про метрики в реальном времени.
+        </aside>
       </section>
       
       <!-- 10. КЕЙС: Календарь -->
@@ -559,18 +239,21 @@
         <div class="section-label">Координация</div>
         <h2>Встречи с контекстом</h2>
         <div class="dark-box">«Поставь созвон с Никитой на завтра в 15:00, тема — ревью PR»</div>
-        <div class="card" style="margin-top: 20px;">
-          <p style="margin: 0 0 8px 0;"><strong>Что делает агент:</strong></p>
-          <ul style="margin: 0;">
+        <div class="card mt-md">
+          <p><strong>Что делает агент:</strong></p>
+          <ul>
             <li>Находит Никиту в контактах</li>
             <li>Создаёт событие в командном календаре</li>
             <li>Отправляет приглашение</li>
             <li>Напоминает за 5 мин <em>с контекстом</em></li>
           </ul>
         </div>
-        <div class="card" style="margin-top: 12px; border-left: 4px solid var(--green);">
-          <p class="small" style="margin: 0;">💬 «Через 5 мин созвон с Никитой. Тема: ревью PR. Последний раз обсуждали миграцию БД.»</p>
+        <div class="card-success mt-sm">
+          <p class="small">💬 «Через 5 мин созвон с Никитой. Тема: ревью PR. Последний раз обсуждали миграцию БД.»</p>
         </div>
+        <aside class="notes">
+          Календарь с контекстом. Агент помнит предыдущие разговоры.
+        </aside>
       </section>
       
       <!-- 11. КЕЙС: Поездка -->
@@ -578,7 +261,7 @@
         <span class="logo">Кейс #4</span>
         <div class="section-label">Организация</div>
         <h2>Командная поездка</h2>
-        <p class="small muted" style="margin-bottom: 16px;">5 человек · OpenTalks.AI · Белград · 5 дней</p>
+        <p class="small muted mb-lg">5 человек · OpenTalks.AI · Белград · 5 дней</p>
         <div class="two-col">
           <div>
             <h3 class="accent">✓ Агент сделал</h3>
@@ -601,6 +284,9 @@
             </ul>
           </div>
         </div>
+        <aside class="notes">
+          Реальный кейс организации командной поездки. Сравнение с/без агента.
+        </aside>
       </section>
       
       <!-- 12. КЕЙС: Поездка детали -->
@@ -615,14 +301,20 @@
           <span class="time">День X</span><span>💬 «Трансфер в 19:40, табличка Croissan Studio»</span>
           <span class="time">После</span><span>«Раздели счета из WhoAte»</span>
         </div>
-        <p class="small muted" style="margin-top: 20px;">Всё в одном чате. Без переключений.</p>
+        <p class="small muted mt-md">Всё в одном чате. Без переключений.</p>
+        <aside class="notes">
+          Timeline поездки. Все взаимодействия через один чат.
+        </aside>
       </section>
       
       <!-- 13. DEMO #2 -->
       <section class="center-slide dark-slide">
         <div class="emoji">🎬</div>
         <h1>Демо</h1>
-        <p style="opacity: 0.7;">Создам встречу голосом</p>
+        <p class="muted">Создам встречу голосом</p>
+        <aside class="notes">
+          ДЕМО: Голосовое сообщение в Telegram для создания встречи.
+        </aside>
       </section>
       
       <!-- 14. WTF момент -->
@@ -633,12 +325,15 @@
           В прошлом году ты дарил книгу про дизайн.<br>
           Хочешь, найду идеи подарков?»
         </p>
-        <p style="margin-top: 28px; font-size: var(--fs-lg);">
+        <h2 class="mt-lg">
           Я <strong>забыл</strong>. Агент — <strong>нет</strong>.
-        </p>
-        <p class="tiny muted" style="margin-top: 12px;">
+        </h2>
+        <p class="tiny muted mt-sm">
           Календарь + история покупок + память из чатов
         </p>
+        <aside class="notes">
+          WTF-момент. Агент помнит больше, чем я сам. Проактивные напоминания.
+        </aside>
       </section>
       
       <!-- 15. ОШИБКИ -->
@@ -647,12 +342,12 @@
         <div class="section-label">Это не магия</div>
         <h2>Когда агент ошибается</h2>
         <div class="orange-box">
-          <p style="margin: 0;">
+          <p>
             «Отправь письмо клиенту с подтверждением встречи»<br>
-            <span style="opacity: 0.85;">→ Отправил. Но написал 15:00 вместо 16:00</span>
+            <span class="muted">→ Отправил. Но написал 15:00 вместо 16:00</span>
           </p>
         </div>
-        <div class="two-col" style="margin-top: 16px;">
+        <div class="two-col mt-lg">
           <div>
             <h3 class="orange">Типичные ошибки</h3>
             <ul class="small">
@@ -670,9 +365,12 @@
             </ul>
           </div>
         </div>
-        <p class="small muted" style="margin-top: 12px;">
+        <p class="small muted mt-sm">
           Агент — джуниор на стероидах. Быстрый, но нужен контроль.
         </p>
+        <aside class="notes">
+          Честность: агенты ошибаются. Важно знать как и когда проверять.
+        </aside>
       </section>
       
       <!-- 16. КЕЙС: Код -->
@@ -683,18 +381,21 @@
         <div class="two-col">
           <div class="card">
             <h3>Мониторинг</h3>
-            <div class="dark-box" style="margin: 8px 0;">«Проверь CI на backend»</div>
+            <div class="dark-box">«Проверь CI на backend»</div>
             <p class="small">→ «✅ passed, 3 мин назад»</p>
           </div>
           <div class="card">
             <h3>Дебаг</h3>
-            <div class="dark-box" style="margin: 8px 0;">«Почему стриминг не работает?»</div>
+            <div class="dark-box">«Почему стриминг не работает?»</div>
             <p class="small">→ Читает код, находит баг</p>
           </div>
         </div>
-        <p class="tiny muted" style="margin-top: 16px;">
+        <p class="tiny muted mt-lg">
           + статус Dokploy · логи · перезапуск · проверка доменов
         </p>
+        <aside class="notes">
+          Разработка: CI мониторинг, дебаг, деплой через чат.
+        </aside>
       </section>
       
       <!-- 17. КЕЙС: Тексты -->
@@ -716,10 +417,13 @@
             <p class="tiny muted">@neuroartistproject — посты, структура</p>
           </div>
         </div>
-        <p style="margin-top: 20px;">
+        <p class="mt-md">
           Агент знает наш ToV, аудиторию, прошлые тексты.<br>
           <span class="muted">Не нужно объяснять с нуля.</span>
         </p>
+        <aside class="notes">
+          Контент: агент знает ToV, историю текстов, целевую аудиторию.
+        </aside>
       </section>
       
       <!-- 18. Типичный день -->
@@ -736,13 +440,16 @@
           <span class="time">20:00</span><span>«У Эли ДР через 3 дня...»</span>
           <span class="time">22:40</span><span>«Сделай презу» → 20 минут</span>
         </div>
+        <aside class="notes">
+          Обзор типичного дня с агентом. От утреннего дайджеста до вечерних задач.
+        </aside>
       </section>
       
       <!-- 19. РЕЗУЛЬТАТ -->
       <section class="center-slide">
         <span class="logo">Итог</span>
         <div class="big-number">10+</div>
-        <h2 style="margin-top: 8px;">часов в неделю</h2>
+        <h2>часов в неделю</h2>
         <div class="tag-grid">
           <div class="tag">📊 Аналитика: 2ч</div>
           <div class="tag">📅 Календарь: 1.5ч</div>
@@ -751,6 +458,9 @@
           <div class="tag">🐙 Код: 2ч</div>
           <div class="tag">✈️ Координация: 1ч</div>
         </div>
+        <aside class="notes">
+          Итог: 10+ часов экономии в неделю. Разбивка по категориям.
+        </aside>
       </section>
       
       <!-- 20. КАК НАЧАТЬ -->
@@ -775,9 +485,12 @@
             <p class="tiny muted">Память, интеграции, действия.</p>
           </div>
         </div>
-        <p style="margin-top: 20px;">
+        <p class="mt-md">
           <strong>Совет:</strong> выберите задачу, которая бесит. Автоматизируйте. Повторите.
         </p>
+        <aside class="notes">
+          Три уровня входа: от простого ChatGPT до полноценного агента.
+        </aside>
       </section>
       
       <!-- 21. МОЙ СТЕК -->
@@ -805,9 +518,12 @@
             </ul>
           </div>
         </div>
-        <p class="tiny muted" style="margin-top: 16px;">
+        <p class="tiny muted mt-lg">
           Напишите — покажу конфиг, дам скиллы
         </p>
+        <aside class="notes">
+          Технический стек: OpenClaw + Claude + Telegram. Список интеграций.
+        </aside>
       </section>
       
       <!-- 22. ИИ-Клуб -->
@@ -818,57 +534,88 @@
           ОЭЗ «Иннополис» запускает клуб для тех,<br>
           кто внедряет AI в работу и жизнь.
         </p>
-        <div class="two-col" style="margin-top: 20px;">
-          <div class="card" style="text-align: center;">
-            <p style="margin: 0;">🗓 Встречи</p>
-            <p class="tiny muted" style="margin: 4px 0;">Регулярные митапы</p>
+        <div class="two-col mt-md">
+          <div class="card text-center">
+            <p>🗓 Встречи</p>
+            <p class="tiny muted">Регулярные митапы</p>
           </div>
-          <div class="card" style="text-align: center;">
-            <p style="margin: 0;">🛠 Воркшопы</p>
-            <p class="tiny muted" style="margin: 4px 0;">Практика, хакатоны</p>
+          <div class="card text-center">
+            <p>🛠 Воркшопы</p>
+            <p class="tiny muted">Практика, хакатоны</p>
           </div>
         </div>
-        <p style="margin-top: 20px;" class="muted small">Присоединяйтесь — будем делиться опытом</p>
+        <p class="muted small mt-md">Присоединяйтесь — будем делиться опытом</p>
+        <aside class="notes">
+          Анонс ИИ-Клуба. Приглашение к участию.
+        </aside>
       </section>
       
       <!-- 23. CTA + Q&A -->
       <section class="center-slide dark-slide">
-        <h2 style="font-size: var(--fs-xl);">Давайте общаться</h2>
+        <h2 class="title-xl">Давайте общаться</h2>
         <div class="cta-grid">
           <div class="qr-box">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOgAAADoAQMAAADfZzo7AAAABlBMVEUAAAD///+l2Z/dAAAAAnRSTlP//8i138cAAAAJcEhZcwAACxIAAAsSAdLdfvwAAADXSURBVFiF7ZTBDsMwCEP9/z/N1Ng4rJt6r1taRQkvlxgD6irw0vtTMLgvnDN51LKMZDVKpEeq15nJpkUlnkNZ9QfQ7e3fTSBVU4/vz6zLoR3rxvp3KpEyK6bdcH4cLQsAnbDbPJDq9XugrfTohTDKG7VPFiOVevFwq3E7j1IDl7xdEUqnLJLh604aHbqIn3QKoyw65knzO5N22Avs9a5+HIWeLz3s+FgqLex4qlG5VFPMlQeeQAlsCDdAKh1TjarEUrl9MeogeTKppxlaG4wGj6MX8dK70w/JUliJKCJ7bAAAAABJRU5ErkJggg==" alt="QR">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOgAAADoAQMAAADfZzo7AAAABlBMVEUAAAD///+l2Z/dAAAAAnRSTlP//8i138cAAAAJcEhZcwAACxIAAAsSAdLdfvwAAADXSURBVFiF7ZTBDsMwCEP9/z/N1Ng4rJt6r1taRQkvlxgD6irw0vtTMLgvnDN51LKMZDVKpEeq15nJpkUlnkNZ9QfQ7e3fTSBVU4/vz6zLoR3rxvp3KpEyK6bdcH4cLQsAnbDbPJDq9XugrfTohTDKG7VPFiOVevFwq3E7j1IDl7xdEUqnLJLh604aHbqIn3QKoyw65knzO5N22Avs9a5+HIWeLz3s+FgqLex4qlG5VFPMlQeeQAlsCDdAKh1TjarEUrl9MeogeTKppxlaG4wGj6MX8dK70w/JUliJKCJ7bAAAAABJRU5ErkJggg==" alt="QR-код: Telegram @vilfer">
           </div>
           <div>
-            <p style="font-size: var(--fs-md); margin: 0;">
+            <p class="accent">
               <strong>Telegram:</strong> @vilfer<br>
               <strong>Сайт:</strong> croissanstudio.ru
             </p>
-            <p class="muted small" style="margin-top: 8px;">
+            <p class="muted small mt-sm">
               Покажу настройки, поделюсь скиллами
             </p>
           </div>
         </div>
-        <div style="margin-top: 48px;">
-          <p style="font-size: 48px; margin-bottom: 8px;">❓</p>
+        <div class="mt-2xl">
+          <p class="emoji">❓</p>
           <h2>Вопросы?</h2>
         </div>
+        <aside class="notes">
+          CTA: контакты, QR-код. Открыть для вопросов.
+        </aside>
       </section>
       
     </div>
   </div>
 
+  <!-- Reveal.js Core -->
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.min.js"></script>
+  <!-- Reveal.js Plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/zoom/zoom.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/search/search.min.js"></script>
   <script>
     Reveal.initialize({
+      // Display
       hash: true,
       controls: true,
       progress: true,
-      slideNumber: false,
+      slideNumber: 'c/t',
+      showSlideNumber: 'all',
+
+      // Navigation
+      keyboard: true,
+      touch: true,
+      overview: true,
+      help: true,
+
+      // Transitions
       transition: 'none',
+      backgroundTransition: 'none',
+
+      // Layout
       width: 1280,
       height: 720,
       margin: 0,
-      center: false
+      center: false,
+
+      // Performance
+      viewDistance: 3,
+      mobileViewDistance: 2,
+
+      // Plugins
+      plugins: [RevealNotes, RevealZoom, RevealSearch]
     });
   </script>
 </body>
