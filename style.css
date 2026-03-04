@@ -248,6 +248,14 @@
   opacity: 0.85;
 }
 
+.card-warning {
+  border-left: 3px solid var(--orange);
+}
+
+.card-china {
+  border-left: 3px solid #de2910;
+}
+
 .card-old-header {
   font-size: var(--fs-base);
   font-weight: 600;
