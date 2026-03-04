@@ -37,7 +37,6 @@
       <!-- 1. TITLE -->
       <section id="title-slide" class="center-slide dark-slide"
                data-background-video="assets/bg.mp4"
-               data-background-video-loop
                data-background-video-muted
                data-background-size="cover"
                data-background-color="#000000">
@@ -1063,12 +1062,34 @@
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/zoom/zoom.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/search/search.min.js"></script>
   <script>
-    // Random background video selection
-    (function() {
-      const videos = ['assets/bg.mp4', 'assets/bg_2.mp4', 'assets/bg_3.mp4'];
-      const randomVideo = videos[Math.floor(Math.random() * videos.length)];
-      document.getElementById('title-slide').setAttribute('data-background-video', randomVideo);
-    })();
+    // Random background video rotation
+    const bgVideos = ['assets/bg.mp4', 'assets/bg_2.mp4', 'assets/bg_3.mp4'];
+    let currentVideoIndex = Math.floor(Math.random() * bgVideos.length);
+
+    function getNextRandomVideo() {
+      let nextIndex;
+      do {
+        nextIndex = Math.floor(Math.random() * bgVideos.length);
+      } while (nextIndex === currentVideoIndex && bgVideos.length > 1);
+      currentVideoIndex = nextIndex;
+      return bgVideos[currentVideoIndex];
+    }
+
+    // Set initial random video
+    document.getElementById('title-slide').setAttribute('data-background-video', bgVideos[currentVideoIndex]);
+
+    // Setup video rotation after Reveal is ready
+    function setupVideoRotation() {
+      const bgVideo = document.querySelector('.slide-background[data-background-hash*="bg"] video');
+      if (bgVideo) {
+        bgVideo.removeAttribute('loop');
+        bgVideo.addEventListener('ended', function() {
+          const nextVideo = getNextRandomVideo();
+          this.src = nextVideo;
+          this.play();
+        });
+      }
+    }
 
     Reveal.initialize({
       // Display
@@ -1099,7 +1120,7 @@
 
       // Plugins
       plugins: [RevealNotes, RevealZoom, RevealSearch]
-    });
+    }).then(setupVideoRotation);
   </script>
 </body>
 </html>
