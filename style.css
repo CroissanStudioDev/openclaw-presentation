@@ -497,6 +497,211 @@
   font-size: var(--fs-md);
 }
 
+/* ===== WHOATE SLIDE ===== */
+.whoate-layout {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  gap: 40px;
+  align-items: start;
+}
+
+.whoate-features {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.whoate-qr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.whoate-qr .qr-box {
+  width: 160px;
+  height: 160px;
+}
+
+/* ===== CHAT MOCKUP ===== */
+.chat-mockup {
+  background: #f0f0f0;
+  border-radius: var(--radius-md);
+  padding: 20px;
+  max-width: 600px;
+  margin: 16px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chat-date {
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-muted);
+  margin: 8px 0 4px;
+}
+
+.chat-date:first-child {
+  margin-top: 0;
+}
+
+.chat-msg {
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: 16px;
+  font-size: var(--fs-xs);
+  line-height: 1.4;
+}
+
+.chat-user {
+  background: var(--accent);
+  color: var(--white);
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+
+.chat-agent {
+  background: var(--white);
+  color: var(--text);
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+
+/* ===== WTF SLIDE ===== */
+.wtf-layout {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 32px;
+  align-items: start;
+}
+
+.wtf-sources {
+  padding-top: 20px;
+}
+
+.wtf-sources h3 {
+  font-size: var(--fs-sm);
+  margin-bottom: 16px;
+}
+
+.wtf-source-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.wtf-source {
+  background: var(--white);
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+}
+
+/* ===== ERROR SLIDE ===== */
+.error-layout {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  gap: 24px;
+  align-items: start;
+}
+
+.chat-error {
+  max-width: 100%;
+}
+
+.chat-agent-error {
+  background: #fff3cd;
+  border: 1px solid var(--orange);
+}
+
+.error-types {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.error-type {
+  background: var(--white);
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-xs);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.error-icon {
+  font-size: 18px;
+}
+
+.protection-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.protection-card {
+  background: var(--white);
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  border-left: 3px solid var(--green);
+}
+
+/* ===== MODELS SLIDE ===== */
+.models-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.model-card {
+  background: var(--white);
+  padding: 20px;
+  border-radius: var(--radius-sm);
+  position: relative;
+}
+
+.model-card h3 {
+  font-size: var(--fs-sm);
+  margin: 0 0 8px 0;
+}
+
+.model-price {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--accent);
+  margin: 0 0 8px 0;
+}
+
+.model-recommended {
+  border: 2px solid var(--accent);
+  background: linear-gradient(135deg, rgba(39,39,202,0.05) 0%, var(--white) 100%);
+}
+
+.model-badge {
+  position: absolute;
+  top: -10px;
+  left: 16px;
+  background: var(--accent);
+  color: var(--white);
+  font-size: 10px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 10px;
+  text-transform: uppercase;
+}
+
+.model-local {
+  border: 2px dashed var(--green);
+}
+
+.model-local .model-price {
+  color: var(--green);
+}
+
 /* ===== CARD ICON ===== */
 .card-icon {
   font-size: 32px;
@@ -770,6 +975,78 @@
     font-size: var(--fs-xs);
   }
 
+  /* WhoAte layout tablet */
+  .whoate-layout {
+    grid-template-columns: 1fr 160px;
+    gap: 24px;
+  }
+
+  .whoate-qr .qr-box {
+    width: 140px;
+    height: 140px;
+  }
+
+  /* Chat mockup tablet */
+  .chat-mockup {
+    padding: 16px;
+    max-width: 100%;
+  }
+
+  .chat-msg {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+
+  /* WTF layout tablet */
+  .wtf-layout {
+    grid-template-columns: 1fr 180px;
+    gap: 24px;
+  }
+
+  .wtf-source {
+    font-size: 12px;
+    padding: 10px 12px;
+  }
+
+  /* Models grid tablet */
+  .models-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .model-card {
+    padding: 16px;
+  }
+
+  .model-card h3 {
+    font-size: var(--fs-xs);
+  }
+
+  .model-price {
+    font-size: 12px;
+  }
+
+  /* Error layout tablet */
+  .error-layout {
+    grid-template-columns: 1fr 160px;
+    gap: 16px;
+  }
+
+  .error-type {
+    padding: 8px 12px;
+    font-size: 11px;
+  }
+
+  .protection-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .protection-card {
+    padding: 10px 12px;
+    font-size: 11px;
+  }
+
   .card-icon {
     font-size: 28px;
   }
@@ -1040,6 +1317,117 @@
     gap: 8px;
     padding: 12px;
     font-size: 12px;
+  }
+
+  /* WhoAte layout mobile */
+  .whoate-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .whoate-qr {
+    order: -1;
+  }
+
+  .whoate-qr .qr-box {
+    width: 120px;
+    height: 120px;
+  }
+
+  /* Chat mockup mobile */
+  .chat-mockup {
+    padding: 12px;
+    gap: 6px;
+  }
+
+  .chat-date {
+    font-size: 10px;
+    margin: 6px 0 2px;
+  }
+
+  .chat-msg {
+    font-size: 11px;
+    padding: 8px 10px;
+    max-width: 90%;
+  }
+
+  /* WTF layout mobile */
+  .wtf-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .wtf-sources {
+    padding-top: 0;
+  }
+
+  .wtf-source-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .wtf-source {
+    font-size: 11px;
+    padding: 8px 12px;
+  }
+
+  /* Models grid mobile */
+  .models-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .model-card {
+    padding: 12px;
+  }
+
+  .model-card h3 {
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+
+  .model-price {
+    font-size: 11px;
+    margin-bottom: 4px;
+  }
+
+  .model-badge {
+    font-size: 8px;
+    padding: 2px 6px;
+    top: -8px;
+  }
+
+  /* Error layout mobile */
+  .error-layout {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .error-types {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .error-type {
+    padding: 8px 10px;
+    font-size: 10px;
+    gap: 6px;
+  }
+
+  .error-icon {
+    font-size: 14px;
+  }
+
+  .protection-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .protection-card {
+    padding: 10px 12px;
+    font-size: 11px;
   }
 
   .stack-arrow {

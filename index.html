@@ -191,8 +191,53 @@
           Skills выполняют действия. Memory и Heartbeat обеспечивают контекст и проактивность.
         </aside>
       </section>
-      
-      <!-- 6. МОЙ СТЕК — Bento Grid -->
+
+      <!-- 6. КАКИЕ МОДЕЛИ -->
+      <section>
+        <span class="logo">Модели</span>
+        <div class="section-label">Выбор LLM</div>
+        <h2>Какую модель использовать?</h2>
+        <div class="models-grid mt-sm">
+          <div class="model-card model-recommended">
+            <div class="model-badge">Рекомендую</div>
+            <h3>Claude Sonnet 4.6</h3>
+            <p class="model-price">$3 / $15 за 1M токенов</p>
+            <p class="tiny muted">1M контекст, почти как Opus</p>
+          </div>
+          <div class="model-card">
+            <h3>Claude Opus 4.6</h3>
+            <p class="model-price">$5 / $25</p>
+            <p class="tiny muted">Максимум качества</p>
+          </div>
+          <div class="model-card">
+            <h3>GPT-5</h3>
+            <p class="model-price">$1.25 / $10</p>
+            <p class="tiny muted">OpenAI флагман</p>
+          </div>
+          <div class="model-card model-local">
+            <h3>Ollama</h3>
+            <p class="model-price">$0 бесплатно</p>
+            <p class="tiny muted">Qwen 3 8B на Mac Mini</p>
+          </div>
+        </div>
+        <div class="two-col mt-md">
+          <div class="card">
+            <h3>💳 Подписка</h3>
+            <p class="small">Claude Max / ChatGPT Plus</p>
+            <p class="tiny muted">$20/мес, лимиты на сообщения. Проще начать.</p>
+          </div>
+          <div class="card">
+            <h3>🔑 API</h3>
+            <p class="small">Pay-as-you-go</p>
+            <p class="tiny muted">Платишь за токены. Гибче, дешевле при объёмах.</p>
+          </div>
+        </div>
+        <aside class="notes">
+          Цены через OpenRouter, март 2026. Sonnet — sweet spot. Opus подешевел до $5/$25. GPT-5 — $1.25/$10.
+        </aside>
+      </section>
+
+      <!-- 7. МОЙ СТЕК — Bento Grid -->
       <section>
         <span class="logo">Стек</span>
         <div class="section-label">Интеграции</div>
@@ -213,36 +258,17 @@
           </div>
           <div class="bento-item"><div class="icon">🎨</div><div class="label">Figma</div></div>
           <div class="bento-item"><div class="icon">📝</div><div class="label">Notion</div></div>
-          <div class="bento-item"><div class="icon">🌐</div><div class="label">Web</div></div>
-          <div class="bento-item"><div class="icon">☀️</div><div class="label">Weather</div></div>
+          <div class="bento-item"><div class="icon">🦀</div><div class="label">Pinchtab</div></div>
+          <div class="bento-item"><div class="icon">🔍</div><div class="label">Exa</div></div>
+          <div class="bento-item"><div class="icon">🧾</div><div class="label">WhoAte</div></div>
+          <div class="bento-item"><div class="icon">🖼️</div><div class="label">Скилл НейроХудожник</div></div>
         </div>
-        <p class="tiny muted mt-sm text-center">+50 скиллов на clawhub.com</p>
         <aside class="notes">
           Обзор интеграций. Telegram — основной интерфейс, голосовые сообщения работают.
         </aside>
       </section>
       
-      <!-- 7. МЕТА-КЕЙС -->
-      <section>
-        <span class="logo">Кейс #1</span>
-        <div class="section-label">Мета</div>
-        <h2>Эти слайды</h2>
-        <div class="dark-box">
-          «Создай презентацию для Startup Talk, стиль возьми из Figma»
-        </div>
-        <div class="timeline mt-md">
-          <span class="time">+2 мин</span><span>Figma API → цвета, шрифты</span>
-          <span class="time">+5 мин</span><span>CSS-тема для Reveal.js</span>
-          <span class="time">+10 мин</span><span>Кейсы из истории чатов</span>
-          <span class="time">+3 мин</span><span>Экспорт в PDF</span>
-        </div>
-        <p class="mt-lg"><strong class="accent">20 минут.</strong> <span class="muted">Одно сообщение.</span></p>
-        <aside class="notes">
-          Мета-кейс: эта презентация создана за 20 минут. Показать timeline создания.
-        </aside>
-      </section>
-      
-      <!-- 8. КЕЙС: Аналитика -->
+      <!-- 7. КЕЙС: Аналитика -->
       <section>
         <span class="logo">Кейс #2</span>
         <div class="section-label">Ежедневное</div>
@@ -296,17 +322,7 @@
         </aside>
       </section>
       
-      <!-- 10. DEMO #1 -->
-      <section class="center-slide dark-slide">
-        <div class="emoji">🎬</div>
-        <h1>Демо</h1>
-        <p class="muted">Живой запрос к аналитике</p>
-        <aside class="notes">
-          ДЕМО: Открыть Telegram, спросить про метрики в реальном времени.
-        </aside>
-      </section>
-      
-      <!-- 11. КЕЙС: Календарь -->
+      <!-- 10. КЕЙС: Календарь -->
       <section>
         <span class="logo">Кейс #3</span>
         <div class="section-label">Координация</div>
@@ -361,51 +377,106 @@
           Реальный кейс организации командной поездки. Сравнение с/без агента.
         </aside>
       </section>
-      
-      <!-- 13. КЕЙС: Поездка детали -->
+
+      <!-- 13. WHOATE.APP -->
+      <section>
+        <span class="logo">Open Source</span>
+        <div class="section-label">Наш проект</div>
+        <h2>WhoAte.app 🧾</h2>
+        <p class="muted">Разделение счетов без боли через агента</p>
+        <div class="whoate-layout mt-md">
+          <div class="whoate-features">
+            <div class="card mb-sm">
+              <h3>Как работает</h3>
+              <ul class="small">
+                <li>📸 Сканируешь чек</li>
+                <li>🤖 AI распознаёт позиции</li>
+                <li>👆 Свайпаешь кто что ел, как в Тиндере</li>
+                <li>💸 Получаешь кто сколько должен</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Фичи</h3>
+              <ul class="small">
+                <li>Работает офлайн</li>
+                <li>Без регистрации</li>
+                <li>Open source (MIT)</li>
+                <li>Интеграция с OpenClaw</li>
+              </ul>
+            </div>
+          </div>
+          <div class="whoate-qr">
+            <div class="qr-box">
+              <img src="assets/qr-whoate.png" alt="QR: whoate.app">
+            </div>
+            <p class="small text-center mt-sm"><strong class="accent">whoate.app</strong></p>
+            <p class="tiny muted text-center">GitHub: CroissanStudioDev/whoate</p>
+          </div>
+        </div>
+        <aside class="notes">
+          Наш open-source проект для разделения счетов. AI сканирует чек, распознаёт позиции.
+          Интегрирован с OpenClaw — агент может сам разделить счета после поездки.
+        </aside>
+      </section>
+
+      <!-- 14. КЕЙС: Поездка детали -->
       <section>
         <span class="logo">Кейс #4</span>
-        <div class="section-label">Timeline</div>
+        <div class="section-label">Один чат — вся поездка</div>
         <h2>Как это выглядело</h2>
-        <div class="timeline">
-          <span class="time">За неделю</span><span>«Создай Notion для поездки в Белград»</span>
-          <span class="time">За 3 дня</span><span>«Найди кофейни в Dorćol, Эля любит specialty»</span>
-          <span class="time">За 1 день</span><span>«Погода? Нужна тёплая одежда?»</span>
-          <span class="time">День X</span><span>💬 «Трансфер в 19:40, табличка Croissan Studio»</span>
-          <span class="time">После</span><span>«Раздели счета из WhoAte»</span>
+        <div class="chat-mockup">
+          <div class="chat-date">За неделю</div>
+          <div class="chat-msg chat-user">Создай Notion для поездки в Белград</div>
+          <div class="chat-msg chat-agent">✅ Создал страницу с разделами: маршрут, жильё, еда, контакты</div>
+
+          <div class="chat-date">За 3 дня</div>
+          <div class="chat-msg chat-user">Найди кофейни в Dorćol, Эля любит specialty</div>
+          <div class="chat-msg chat-agent">☕ Нашёл 5 мест. Топ-1: Kafeterija — 4.9★</div>
+
+          <div class="chat-date">День X</div>
+          <div class="chat-msg chat-agent">🚕 Напоминаю: трансфер в 19:40, табличка «Croissan Studio»</div>
+
+          <div class="chat-date">После</div>
+          <div class="chat-msg chat-user">Раздели счета из WhoAte</div>
+          <div class="chat-msg chat-agent">💸 Готово! Яков должен 2,400₽, Эля — 1,800₽</div>
         </div>
-        <p class="small muted mt-md">Всё в одном чате. Без переключений.</p>
         <aside class="notes">
-          Timeline поездки. Все взаимодействия через один чат.
+          Timeline поездки в формате чата. Показывает реальное взаимодействие с агентом.
         </aside>
       </section>
       
-      <!-- 14. DEMO #2 -->
-      <section class="center-slide dark-slide">
-        <div class="emoji">🎬</div>
-        <h1>Демо</h1>
-        <p class="muted">Создам встречу голосом</p>
-        <aside class="notes">
-          ДЕМО: Голосовое сообщение в Telegram для создания встречи.
-        </aside>
-      </section>
-      
-      <!-- 15. WTF момент -->
-      <section class="center-slide">
+      <!-- 13. WTF момент -->
+      <section>
         <span class="logo">Неожиданное</span>
-        <p class="quote">
-          «Сергей, у Эли день рождения через 3 дня.<br>
-          В прошлом году ты дарил книгу про дизайн.<br>
-          Хочешь, найду идеи подарков?»
-        </p>
-        <h2 class="mt-lg">
-          Я <strong>забыл</strong>. Агент — <strong>нет</strong>.
-        </h2>
-        <p class="tiny muted mt-sm">
-          Календарь + история покупок + память из чатов
-        </p>
+        <div class="section-label">Проактивность</div>
+        <h2>Я забыл. Агент — нет.</h2>
+        <div class="wtf-layout mt-md">
+          <div class="chat-mockup">
+            <div class="chat-date">Вторник, 10:32</div>
+            <div class="chat-msg chat-agent">
+              🎂 Сергей, у Эли день рождения через 3 дня.<br><br>
+              В прошлом году ты дарил книгу про дизайн.<br><br>
+              Хочешь, найду идеи подарков?
+            </div>
+            <div class="chat-msg chat-user">Да, давай!</div>
+            <div class="chat-msg chat-agent">
+              🎁 Нашёл 5 вариантов:<br>
+              1. Курс по Figma — 4,500₽<br>
+              2. Книга "Дизайн привычных вещей"<br>
+              3. Подписка на Setka...
+            </div>
+          </div>
+          <div class="wtf-sources">
+            <h3 class="muted">Откуда он знает?</h3>
+            <div class="wtf-source-list">
+              <div class="wtf-source">📅 Календарь</div>
+              <div class="wtf-source">🛒 История покупок</div>
+              <div class="wtf-source">💬 Память из чатов</div>
+            </div>
+          </div>
+        </div>
         <aside class="notes">
-          WTF-момент. Агент помнит больше, чем я сам. Проактивные напоминания.
+          WTF-момент. Агент помнит больше, чем я сам. Показываем источники данных.
         </aside>
       </section>
       
@@ -414,35 +485,45 @@
         <span class="logo">Честность</span>
         <div class="section-label">Это не магия</div>
         <h2>Когда агент ошибается</h2>
-        <div class="orange-box">
-          <p>
-            «Отправь письмо клиенту с подтверждением встречи»<br>
-            <span class="muted">→ Отправил. Но написал 15:00 вместо 16:00</span>
-          </p>
-        </div>
-        <div class="two-col mt-lg">
-          <div>
-            <h3 class="orange">Типичные ошибки</h3>
-            <ul class="small">
-              <li>Неправильно понял контекст</li>
-              <li>Галлюцинации в данных</li>
-              <li>Слишком буквально выполнил</li>
-            </ul>
+        <div class="error-layout">
+          <div class="chat-mockup chat-error">
+            <div class="chat-msg chat-user">Отправь письмо клиенту с подтверждением встречи</div>
+            <div class="chat-msg chat-agent">✅ Отправил письмо Алексею</div>
+            <div class="chat-msg chat-agent chat-agent-error">
+              ⚠️ Упс: написал 15:00 вместо 16:00
+            </div>
           </div>
-          <div>
-            <h3 class="green">Как защищаюсь</h3>
-            <ul class="small">
-              <li>Важные действия — подтверждаю</li>
-              <li>Email/деньги — всегда проверяю</li>
-              <li>Аналитику — сверяю с дашбордом</li>
-            </ul>
+          <div class="error-types">
+            <div class="error-type">
+              <span class="error-icon">🎯</span>
+              <span>Неправильный контекст</span>
+            </div>
+            <div class="error-type">
+              <span class="error-icon">👻</span>
+              <span>Галлюцинации</span>
+            </div>
+            <div class="error-type">
+              <span class="error-icon">🤖</span>
+              <span>Слишком буквально</span>
+            </div>
           </div>
         </div>
-        <p class="small muted mt-sm">
-          Агент — джуниор на стероидах. Быстрый, но нужен контроль.
+        <div class="protection-grid mt-md">
+          <div class="protection-card">
+            <span class="green">✓</span> Важное — подтверждаю
+          </div>
+          <div class="protection-card">
+            <span class="green">✓</span> Email/деньги — проверяю
+          </div>
+          <div class="protection-card">
+            <span class="green">✓</span> Аналитику — сверяю
+          </div>
+        </div>
+        <p class="punchline text-center mt-md">
+          Агент — <strong>джуниор на стероидах</strong>. Быстрый, но нужен контроль.
         </p>
         <aside class="notes">
-          Честность: агенты ошибаются. Важно знать как и когда проверять.
+          Честность: агенты ошибаются. Показываем реальный пример и стратегии защиты.
         </aside>
       </section>
       
@@ -622,8 +703,28 @@
           Анонс ИИ-Клуба. Приглашение к участию.
         </aside>
       </section>
-      
-      <!-- 24. CTA + Q&A -->
+
+      <!-- 24. МЕТА-КЕЙС -->
+      <section>
+        <span class="logo">Мета</span>
+        <div class="section-label">Эта презентация</div>
+        <h2>Эти слайды</h2>
+        <div class="dark-box">
+          «Создай презентацию для Startup Talk, стиль возьми из Figma»
+        </div>
+        <div class="timeline mt-md">
+          <span class="time">+2 мин</span><span>Figma API → цвета, шрифты</span>
+          <span class="time">+5 мин</span><span>CSS-тема для Reveal.js</span>
+          <span class="time">+10 мин</span><span>Кейсы из истории чатов</span>
+          <span class="time">+3 мин</span><span>Экспорт в PDF</span>
+        </div>
+        <p class="mt-lg"><strong class="accent">20 минут.</strong> <span class="muted">Одно сообщение.</span></p>
+        <aside class="notes">
+          Мета-кейс: эта презентация создана за 20 минут. Финальный "вау" перед Q&A.
+        </aside>
+      </section>
+
+      <!-- 25. CTA + Q&A -->
       <section class="center-slide dark-slide">
         <h2 class="title-xl">Давайте общаться</h2>
         <div class="cta-grid">
