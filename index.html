@@ -35,7 +35,7 @@
     <div class="slides">
       
       <!-- 1. TITLE -->
-      <section class="center-slide dark-slide"
+      <section id="title-slide" class="center-slide dark-slide"
                data-background-video="assets/bg.mp4"
                data-background-video-loop
                data-background-video-muted
@@ -1014,7 +1014,17 @@
         </aside>
       </section>
 
-      <!-- 25. CTA + Q&A -->
+      <!-- 25. PRE-END -->
+      <section class="center-slide">
+        <img src="assets/pre-end.jpg" alt="Pre-end" class="slide-image">
+      </section>
+
+      <!-- 26. END -->
+      <section class="center-slide">
+        <img src="assets/end.jpg" alt="End" class="slide-image">
+      </section>
+
+      <!-- 27. CTA + Q&A -->
       <section class="center-slide dark-slide">
         <h2 class="cta-title">Давайте общаться</h2>
         <div class="cta-center">
@@ -1053,6 +1063,13 @@
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/zoom/zoom.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/search/search.min.js"></script>
   <script>
+    // Random background video selection
+    (function() {
+      const videos = ['assets/bg.mp4', 'assets/bg_2.mp4', 'assets/bg_3.mp4'];
+      const randomVideo = videos[Math.floor(Math.random() * videos.length)];
+      document.getElementById('title-slide').setAttribute('data-background-video', randomVideo);
+    })();
+
     Reveal.initialize({
       // Display
       hash: true,
