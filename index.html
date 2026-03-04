@@ -585,27 +585,75 @@
         <span class="logo">Кейс #5</span>
         <div class="section-label">Разработка</div>
         <h2>GitHub и деплой</h2>
-        <div class="two-col">
-          <div class="card">
-            <h3>Мониторинг</h3>
-            <div class="dark-box">«Проверь CI на backend»</div>
-            <p class="small">→ «✅ passed, 3 мин назад»</p>
+        <div class="chat-mockup">
+          <div class="chat-msg chat-user">Проверь PR #142</div>
+          <div class="chat-msg chat-agent">
+            🔍 Анализирую diff...<br><br>
+            ⚠️ <strong>Найдена SQL-инъекция</strong> в auth.py:47<br>
+            ✅ Тесты пройдены (12/12)<br>
+            📝 Добавил комментарий в PR
           </div>
-          <div class="card">
-            <h3>Дебаг</h3>
-            <div class="dark-box">«Почему стриминг не работает?»</div>
-            <p class="small">→ Читает код, находит баг</p>
+          <div class="chat-msg chat-user">Задеплой на staging</div>
+          <div class="chat-msg chat-agent">
+            🚀 Деплою через Dokploy...<br>
+            ✅ Готово за 2:14. Проверь: staging.app
           </div>
         </div>
-        <p class="tiny muted mt-lg">
-          + статус Dokploy · логи · перезапуск · проверка доменов
+        <p class="tiny muted text-center mt-md">
+          PR review · CI статус · Deploy · Логи · Перезапуск
         </p>
         <aside class="notes">
-          Разработка: CI мониторинг, дебаг, деплой через чат.
+          GitHub через gh CLI. PR review с анализом diff, поиск багов.
+          Деплой через Dokploy одной командой. Read — автоматом, write — с подтверждением.
         </aside>
       </section>
-      
-      <!-- 18. КЕЙС: Тексты -->
+
+      <!-- 18. КЕЙС: Exa -->
+      <section>
+        <span class="logo">Кейс #6</span>
+        <div class="section-label">Ресёрч</div>
+        <h2>Exa — нейропоиск</h2>
+        <div class="exa-layout mt-sm">
+          <div class="chat-mockup">
+            <div class="chat-msg chat-user">Что нового у Иннополиса за месяц?</div>
+            <div class="chat-msg chat-agent">
+              🔍 Neural search (фев-март 2026)...<br><br>
+              📰 Нашёл 8 материалов:<br>
+              1. Бюджет вырос до ₽383,8 млн — Татцентр<br>
+              2. Итоги 2025 и планы — innopolis.ru<br>
+              3. Digital Scientist в университете — IT Russia
+            </div>
+            <div class="chat-msg chat-user">Сделай тезисы для встречи</div>
+            <div class="chat-msg chat-agent">
+              📝 Готово:<br>
+              • Бюджет города +6 млн (до 383,8 млн)<br>
+              • Университет запустил AI для химии<br>
+              • ОЭЗ: 73,8 млрд привлечённых инвестиций
+            </div>
+          </div>
+          <div class="exa-info">
+            <div class="card mb-sm">
+              <h3>Что умеет</h3>
+              <ul class="small">
+                <li>🧠 Семантический поиск</li>
+                <li>📅 Точные даты (не как Perplexity)</li>
+                <li>💻 Code context из GitHub</li>
+                <li>📄 Извлечение текста статей</li>
+              </ul>
+            </div>
+            <div class="qr-box qr-small">
+              <img src="assets/qr-exa.png" alt="QR: exa.ai">
+            </div>
+            <p class="tiny muted text-center mt-sm"><strong>exa.ai</strong></p>
+          </div>
+        </div>
+        <aside class="notes">
+          Exa — нейронный поиск. В отличие от Google — понимает смысл запроса.
+          Точная фильтрация по датам (Perplexity врёт). Code context для разработки.
+        </aside>
+      </section>
+
+      <!-- 19. КЕЙС: Тексты -->
       <section>
         <span class="logo">Кейс #6</span>
         <div class="section-label">Контент</div>

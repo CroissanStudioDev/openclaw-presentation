@@ -513,6 +513,34 @@
   align-items: start;
 }
 
+/* ===== EXA SLIDE ===== */
+.exa-layout {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 32px;
+  align-items: start;
+}
+
+.exa-layout .chat-mockup {
+  margin: 0;
+  max-width: 100%;
+}
+
+.exa-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.exa-info .card {
+  width: 100%;
+}
+
+.qr-small {
+  width: 100px;
+  height: 100px;
+}
+
 .whoate-features {
   display: flex;
   flex-direction: column;
@@ -1055,6 +1083,17 @@
     height: 140px;
   }
 
+  /* Exa layout tablet */
+  .exa-layout {
+    grid-template-columns: 1fr 180px;
+    gap: 20px;
+  }
+
+  .qr-small {
+    width: 80px;
+    height: 80px;
+  }
+
   /* Chat mockup tablet */
   .chat-mockup {
     padding: 16px;
@@ -1431,6 +1470,27 @@
   .whoate-qr .qr-box {
     width: 120px;
     height: 120px;
+  }
+
+  /* Exa layout mobile */
+  .exa-layout {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .exa-info {
+    flex-direction: row;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .exa-info .card {
+    flex: 1;
+  }
+
+  .qr-small {
+    width: 70px;
+    height: 70px;
   }
 
   /* Chat mockup mobile */
