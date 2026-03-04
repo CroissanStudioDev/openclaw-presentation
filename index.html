@@ -55,13 +55,13 @@
       <!-- 2. HOOK -->
       <section>
         <span class="logo">Сейчас</span>
-        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+        <div class="hook-center">
           <div class="big-number">20 мин</div>
           <p class="muted mt-sm">от сообщения до готовых слайдов</p>
-          <div class="dark-box mt-xl" style="display: inline-block;">
+          <div class="dark-box mt-xl hook-quote">
             «Сделай презентацию на завтра, стиль возьми из Figma»
           </div>
-          <p class="mt-lg" style="font-size: var(--fs-md);">
+          <p class="mt-lg hook-result">
             ↓<br>
             <strong class="accent">Вы сейчас их смотрите</strong>
           </p>
@@ -72,22 +72,22 @@
       </section>
       
       <!-- 3. КТО Я -->
-      <section style="display: flex; align-items: center; justify-content: center; height: 100%; padding: 60px 80px;">
+      <section class="center-slide">
         <span class="logo">Контекст</span>
-        <div style="display: grid; grid-template-columns: 240px 1fr; gap: 60px; align-items: center; max-width: 900px;">
-          <img src="assets/sergei.jpeg" alt="Сергей Полин" style="width: 240px; height: 240px; border-radius: 20px; object-fit: cover; box-shadow: 0 8px 32px rgba(0,0,0,0.12);">
+        <div class="bio-grid">
+          <img src="assets/sergei.jpeg" alt="Сергей Полин" class="bio-photo">
           <div>
-            <h2 style="margin: 0 0 8px 0; font-size: var(--fs-xl);">Сергей Полин</h2>
-            <p class="muted" style="margin: 0 0 32px 0; font-size: var(--fs-base);">CEO Croissan Studio & НейроХудожник</p>
-            <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px;">
-              <div class="card" style="padding: 16px 20px;">
+            <h2 class="bio-name">Сергей Полин</h2>
+            <p class="muted bio-title">CEO Croissan Studio & НейроХудожник</p>
+            <div class="bio-cards">
+              <div class="card bio-card">
                 <strong class="accent">Croissan Studio</strong> <span class="muted">— интеграция AI в бизнес-процессы</span>
               </div>
-              <div class="card" style="padding: 16px 20px;">
+              <div class="card bio-card">
                 <strong class="accent">НейроХудожник</strong> <span class="muted">— AI-платформа для дизайнеров</span>
               </div>
             </div>
-            <p style="font-size: var(--fs-md); margin: 0;">
+            <p class="bio-experience">
               <strong>~3 месяца</strong> использую агента ежедневно
             </p>
           </div>
@@ -97,35 +97,102 @@
         </aside>
       </section>
       
-      <!-- 4. ЧТО ТАКОЕ АГЕНТ -->
+      <!-- 4. АГЕНТ ≠ CHATGPT -->
       <section>
         <span class="logo">Основы</span>
         <div class="section-label">Главное отличие</div>
         <h2>Агент ≠ ChatGPT</h2>
         <div class="two-col mt-lg">
-          <div class="card">
-            <h3 class="muted">ChatGPT</h3>
-            <p><strong>Отвечает</strong> на вопросы</p>
-            <div class="light-box">
+          <div class="card-old">
+            <div class="card-old-header">
+              <span class="red">✗</span> ChatGPT
+            </div>
+            <p class="mt-sm"><strong>Отвечает</strong> на вопросы</p>
+            <div class="light-box" style="opacity: 0.7;">
               «Как создать событие в календаре?»
             </div>
-            <p class="small muted">→ Инструкция из 5 шагов</p>
+            <p class="small muted" style="text-decoration: line-through;">→ Инструкция из 5 шагов</p>
+            <p class="tiny red mt-sm">Ты делаешь сам</p>
           </div>
-          <div class="card-accent">
-            <h3 class="accent">Агент</h3>
-            <p><strong>Делает</strong></p>
+          <div class="card-new">
+            <div class="card-new-header">
+              <span class="green">✓</span> Агент
+            </div>
+            <p class="mt-sm"><strong>Делает</strong> за тебя</p>
             <div class="dark-box">
               «Поставь встречу с Никитой на завтра 15:00»
             </div>
             <p class="small green">→ Готово ✓</p>
+            <p class="tiny muted mt-sm">Ты занимаешься важным</p>
           </div>
         </div>
         <aside class="notes">
           Ключевое отличие: ChatGPT даёт инструкции, агент выполняет действия сам.
         </aside>
       </section>
+
+      <!-- 5. ЧТО ТАКОЕ OPENCLAW -->
+      <section>
+        <span class="logo">Архитектура</span>
+        <div class="section-label">Open Source · MIT · 250k+ ⭐ GitHub</div>
+        <h2>Как устроен OpenClaw 🦞</h2>
+
+        <div class="arch-hub">
+          <!-- Center: Core -->
+          <div class="arch-center">
+            <div class="arch-label">OpenClaw Core</div>
+            <div class="arch-chips">
+              <span>Agentic Loop</span>
+              <span>Memory</span>
+              <span>Heartbeat</span>
+            </div>
+          </div>
+
+          <!-- Satellites -->
+          <div class="arch-sat arch-sat-tl">
+            <div class="arch-sat-icon">💬</div>
+            <div class="arch-sat-label">Мессенджеры</div>
+            <div class="arch-sat-sub">TG · WA · Slack</div>
+          </div>
+
+          <div class="arch-sat arch-sat-tr">
+            <div class="arch-sat-icon">🧠</div>
+            <div class="arch-sat-label">LLM</div>
+            <div class="arch-sat-sub">Claude · GPT</div>
+          </div>
+
+          <div class="arch-sat arch-sat-bl">
+            <div class="arch-sat-icon">🔌</div>
+            <div class="arch-sat-label">Skills + MCP</div>
+            <div class="arch-sat-sub">clawhub.com</div>
+          </div>
+
+          <div class="arch-sat arch-sat-br">
+            <div class="arch-sat-icon">⚡</div>
+            <div class="arch-sat-label">Действия</div>
+            <div class="arch-sat-sub">Shell · API · Web</div>
+          </div>
+
+          <!-- Connection lines (SVG) -->
+          <svg class="arch-lines" viewBox="0 0 400 300" preserveAspectRatio="none">
+            <line x1="90" y1="70" x2="200" y2="150" />
+            <line x1="310" y1="70" x2="200" y2="150" />
+            <line x1="90" y1="230" x2="200" y2="150" />
+            <line x1="310" y1="230" x2="200" y2="150" />
+            <line x1="90" y1="70" x2="310" y2="70" />
+            <line x1="90" y1="230" x2="310" y2="230" />
+            <line x1="90" y1="70" x2="90" y2="230" />
+            <line x1="310" y1="70" x2="310" y2="230" />
+          </svg>
+        </div>
+
+        <aside class="notes">
+          Архитектура OpenClaw: всё связано с Core. Gateway принимает сообщения, LLM думает,
+          Skills выполняют действия. Memory и Heartbeat обеспечивают контекст и проактивность.
+        </aside>
+      </section>
       
-      <!-- 5. МОЙ СТЕК — Bento Grid -->
+      <!-- 6. МОЙ СТЕК — Bento Grid -->
       <section>
         <span class="logo">Стек</span>
         <div class="section-label">Интеграции</div>
@@ -155,7 +222,7 @@
         </aside>
       </section>
       
-      <!-- 6. МЕТА-КЕЙС -->
+      <!-- 7. МЕТА-КЕЙС -->
       <section>
         <span class="logo">Кейс #1</span>
         <div class="section-label">Мета</div>
@@ -175,7 +242,7 @@
         </aside>
       </section>
       
-      <!-- 7. КЕЙС: Аналитика -->
+      <!-- 8. КЕЙС: Аналитика -->
       <section>
         <span class="logo">Кейс #2</span>
         <div class="section-label">Ежедневное</div>
@@ -205,7 +272,7 @@
         </aside>
       </section>
       
-      <!-- 8. КЕЙС: Аналитика глубже -->
+      <!-- 9. КЕЙС: Аналитика глубже -->
       <section>
         <span class="logo">Кейс #2</span>
         <div class="section-label">Глубже</div>
@@ -229,7 +296,7 @@
         </aside>
       </section>
       
-      <!-- 9. DEMO #1 -->
+      <!-- 10. DEMO #1 -->
       <section class="center-slide dark-slide">
         <div class="emoji">🎬</div>
         <h1>Демо</h1>
@@ -239,7 +306,7 @@
         </aside>
       </section>
       
-      <!-- 10. КЕЙС: Календарь -->
+      <!-- 11. КЕЙС: Календарь -->
       <section>
         <span class="logo">Кейс #3</span>
         <div class="section-label">Координация</div>
@@ -262,7 +329,7 @@
         </aside>
       </section>
       
-      <!-- 11. КЕЙС: Поездка -->
+      <!-- 12. КЕЙС: Поездка -->
       <section>
         <span class="logo">Кейс #4</span>
         <div class="section-label">Организация</div>
@@ -295,7 +362,7 @@
         </aside>
       </section>
       
-      <!-- 12. КЕЙС: Поездка детали -->
+      <!-- 13. КЕЙС: Поездка детали -->
       <section>
         <span class="logo">Кейс #4</span>
         <div class="section-label">Timeline</div>
@@ -313,7 +380,7 @@
         </aside>
       </section>
       
-      <!-- 13. DEMO #2 -->
+      <!-- 14. DEMO #2 -->
       <section class="center-slide dark-slide">
         <div class="emoji">🎬</div>
         <h1>Демо</h1>
@@ -323,7 +390,7 @@
         </aside>
       </section>
       
-      <!-- 14. WTF момент -->
+      <!-- 15. WTF момент -->
       <section class="center-slide">
         <span class="logo">Неожиданное</span>
         <p class="quote">
@@ -342,7 +409,7 @@
         </aside>
       </section>
       
-      <!-- 15. ОШИБКИ -->
+      <!-- 16. ОШИБКИ -->
       <section>
         <span class="logo">Честность</span>
         <div class="section-label">Это не магия</div>
@@ -379,7 +446,7 @@
         </aside>
       </section>
       
-      <!-- 16. КЕЙС: Код -->
+      <!-- 17. КЕЙС: Код -->
       <section>
         <span class="logo">Кейс #5</span>
         <div class="section-label">Разработка</div>
@@ -404,7 +471,7 @@
         </aside>
       </section>
       
-      <!-- 17. КЕЙС: Тексты -->
+      <!-- 18. КЕЙС: Тексты -->
       <section>
         <span class="logo">Кейс #6</span>
         <div class="section-label">Контент</div>
@@ -432,7 +499,7 @@
         </aside>
       </section>
       
-      <!-- 18. Типичный день -->
+      <!-- 19. Типичный день -->
       <section>
         <span class="logo">Обзор</span>
         <div class="section-label">24 часа</div>
@@ -451,7 +518,7 @@
         </aside>
       </section>
       
-      <!-- 19. РЕЗУЛЬТАТ -->
+      <!-- 20. РЕЗУЛЬТАТ -->
       <section class="center-slide">
         <span class="logo">Итог</span>
         <div class="big-number">10+</div>
@@ -469,7 +536,7 @@
         </aside>
       </section>
       
-      <!-- 20. КАК НАЧАТЬ -->
+      <!-- 21. КАК НАЧАТЬ -->
       <section>
         <span class="logo">Практика</span>
         <div class="section-label">С чего начать</div>
@@ -499,7 +566,7 @@
         </aside>
       </section>
       
-      <!-- 21. МОЙ СТЕК -->
+      <!-- 22. МОЙ СТЕК -->
       <section>
         <span class="logo">Практика</span>
         <div class="section-label">Мой стек</div>
@@ -532,7 +599,7 @@
         </aside>
       </section>
       
-      <!-- 22. ИИ-Клуб -->
+      <!-- 23. ИИ-Клуб -->
       <section>
         <span class="logo">Анонс</span>
         <h2>ИИ-Клуб Иннополис</h2>
@@ -556,7 +623,7 @@
         </aside>
       </section>
       
-      <!-- 23. CTA + Q&A -->
+      <!-- 24. CTA + Q&A -->
       <section class="center-slide dark-slide">
         <h2 class="title-xl">Давайте общаться</h2>
         <div class="cta-grid">

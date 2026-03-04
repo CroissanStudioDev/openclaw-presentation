@@ -51,9 +51,26 @@ Key classes:
 - `.dark-slide` — dark background slides
 - `.center-slide` — vertically centered content
 - `.two-col`, `.three-col`, `.bento-grid` — layouts
-- `.card`, `.card-accent`, `.card-success` — containers
+- `.card`, `.card-accent`, `.card-success`, `.card-old`, `.card-new` — containers
 - `.mt-sm/md/lg/xl`, `.mb-*` — margins
 - `.slide-footer` — absolute bottom positioning
+- `.bio-grid`, `.bio-photo` — bio slide layout
+- `.hook-center` — centered hook content
+
+### Responsive Design
+
+**All slides must be responsive.** Three breakpoints:
+- Desktop: 1280x720 (default)
+- Tablet: max-width 768px
+- Mobile: max-width 480px
+
+Guidelines:
+- Use CSS classes instead of inline styles for layouts
+- Grids collapse to single column on mobile (`.two-col`, `.three-col`)
+- Font sizes scale down at breakpoints
+- Padding reduces: 60px/80px → 30px/40px → 20px
+- Use relative units where possible
+- Test on mobile before committing changes
 
 ### Slide Structure
 

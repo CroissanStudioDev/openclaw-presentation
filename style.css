@@ -240,6 +240,34 @@
   border-left: 4px solid var(--green);
 }
 
+.card-old {
+  background: var(--white);
+  padding: 20px;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--red);
+  opacity: 0.85;
+}
+
+.card-old-header {
+  font-size: var(--fs-base);
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.card-new {
+  background: var(--white);
+  padding: 20px;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--green);
+  box-shadow: 0 4px 20px rgba(52, 199, 89, 0.15);
+}
+
+.card-new-header {
+  font-size: var(--fs-base);
+  font-weight: 600;
+  color: var(--text);
+}
+
 .dark-box {
   background: var(--bg-dark);
   color: var(--text-light);
@@ -408,6 +436,182 @@
 
 .emoji { font-size: 64px; margin-bottom: 16px; }
 
+/* ===== BIO SLIDE ===== */
+.bio-grid {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 60px;
+  align-items: center;
+  max-width: 900px;
+}
+
+.bio-photo {
+  width: 240px;
+  height: 240px;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+.bio-name {
+  margin: 0 0 8px 0;
+  font-size: var(--fs-xl);
+}
+
+.bio-title {
+  margin: 0 0 32px 0;
+  font-size: var(--fs-base);
+}
+
+.bio-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.bio-card {
+  padding: 16px 20px;
+}
+
+.bio-experience {
+  font-size: var(--fs-md);
+  margin: 0;
+}
+
+/* ===== HOOK SLIDE ===== */
+.hook-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: calc(100% - 160px);
+}
+
+.hook-quote {
+  display: inline-block;
+}
+
+.hook-result {
+  font-size: var(--fs-md);
+}
+
+/* ===== CARD ICON ===== */
+.card-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+/* ===== OPENCLAW STACK ===== */
+.openclaw-stack {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: var(--white);
+  padding: 16px 24px;
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-sm);
+  flex-wrap: wrap;
+}
+
+.stack-arrow {
+  color: var(--text-muted);
+  font-size: var(--fs-xs);
+}
+
+/* ===== ARCHITECTURE DIAGRAM (Hub Layout) ===== */
+.arch-hub {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  margin-top: 16px;
+}
+
+.arch-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--accent);
+  color: var(--white);
+  padding: 24px 40px;
+  border-radius: var(--radius-md);
+  text-align: center;
+  z-index: 2;
+  box-shadow: 0 8px 32px rgba(39, 39, 202, 0.3);
+}
+
+.arch-center .arch-label {
+  font-size: var(--fs-md);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.arch-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.arch-chips span {
+  background: rgba(255,255,255,0.2);
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.arch-sat {
+  position: absolute;
+  background: var(--white);
+  padding: 16px 20px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+  z-index: 2;
+  min-width: 130px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.arch-sat-icon {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+
+.arch-sat-label {
+  font-weight: 600;
+  font-size: var(--fs-sm);
+}
+
+.arch-sat-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.arch-sat-tl { top: 0; left: 10%; }
+.arch-sat-tr { top: 0; right: 10%; }
+.arch-sat-bl { bottom: 0; left: 10%; }
+.arch-sat-br { bottom: 0; right: 10%; }
+
+.arch-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.arch-lines line {
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-opacity: 0.3;
+  stroke-dasharray: 6 4;
+}
+
 .slide-footer {
   position: absolute;
   bottom: 60px;
@@ -420,6 +624,8 @@
 }
 
 /* ===== RESPONSIVE ===== */
+
+/* Tablet */
 @media screen and (max-width: 768px) {
   .reveal .slides section {
     padding: 30px 40px;
@@ -435,6 +641,10 @@
 
   .reveal h2 {
     font-size: var(--fs-md);
+  }
+
+  .reveal h2.title-xl {
+    font-size: var(--fs-lg);
   }
 
   .two-col,
@@ -479,29 +689,428 @@
 
   .timeline {
     font-size: var(--fs-xs);
+    gap: 4px 12px;
   }
+
+  .quote {
+    font-size: var(--fs-base);
+    padding-left: 16px;
+  }
+
+  .punchline {
+    font-size: var(--fs-base);
+  }
+
+  .slide-footer {
+    bottom: 30px;
+    left: 40px;
+  }
+
+  .dark-box,
+  .light-box,
+  .orange-box {
+    padding: 12px 16px;
+    font-size: var(--fs-xs);
+  }
+
+  .card,
+  .card-accent,
+  .card-success,
+  .card-old,
+  .card-new,
+  .level-card {
+    padding: 16px;
+  }
+
+  .emoji {
+    font-size: 48px;
+  }
+
+  /* Bio slide tablet */
+  .bio-grid {
+    grid-template-columns: 180px 1fr;
+    gap: 40px;
+  }
+
+  .bio-photo {
+    width: 180px;
+    height: 180px;
+  }
+
+  .bio-name {
+    font-size: var(--fs-lg);
+  }
+
+  .bio-title {
+    margin-bottom: 24px;
+  }
+
+  .bio-cards {
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .bio-experience {
+    font-size: var(--fs-base);
+  }
+
+  /* Hook slide tablet */
+  .hook-center {
+    width: calc(100% - 80px);
+  }
+
+  .hook-result {
+    font-size: var(--fs-base);
+  }
+
+  /* OpenClaw stack tablet */
+  .openclaw-stack {
+    gap: 12px;
+    padding: 12px 16px;
+    font-size: var(--fs-xs);
+  }
+
+  .card-icon {
+    font-size: 28px;
+  }
+
+  /* Architecture diagram tablet */
+  .arch-hub {
+    height: 320px;
+  }
+
+  .arch-center {
+    padding: 18px 28px;
+  }
+
+  .arch-center .arch-label {
+    font-size: var(--fs-base);
+  }
+
+  .arch-chips span {
+    font-size: 10px;
+    padding: 4px 10px;
+  }
+
+  .arch-sat {
+    padding: 12px 14px;
+    min-width: 100px;
+  }
+
+  .arch-sat-icon {
+    font-size: 22px;
+  }
+
+  .arch-sat-label {
+    font-size: var(--fs-xs);
+  }
+
+  .arch-sat-sub {
+    font-size: 10px;
+  }
+
+  .arch-sat-tl { left: 5%; }
+  .arch-sat-tr { right: 5%; }
+  .arch-sat-bl { left: 5%; }
+  .arch-sat-br { right: 5%; }
 }
 
+/* Mobile */
 @media screen and (max-width: 480px) {
   .reveal .slides section {
     padding: 20px;
   }
 
+  .reveal h1 {
+    font-size: var(--fs-lg);
+  }
+
+  .reveal h1.title-hero {
+    font-size: var(--fs-xl);
+  }
+
+  .reveal h2 {
+    font-size: var(--fs-base);
+  }
+
+  .reveal h2.title-xl {
+    font-size: var(--fs-md);
+  }
+
+  .reveal h3 {
+    font-size: var(--fs-sm);
+  }
+
+  .reveal p {
+    font-size: var(--fs-sm);
+  }
+
+  .reveal li {
+    font-size: var(--fs-xs);
+  }
+
   .stat-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .stat-card {
+    padding: 12px 8px;
+  }
+
+  .stat-card .num {
+    font-size: var(--fs-lg);
+  }
+
+  .stat-card .label {
+    font-size: 10px;
   }
 
   .bento-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .bento-item {
+    padding: 12px;
+  }
+
+  .bento-item .icon {
+    font-size: 20px;
+  }
+
+  .bento-item .label {
+    font-size: 10px;
   }
 
   .bento-item.large,
   .bento-item.wide {
-    grid-column: span 1;
+    grid-column: span 2;
   }
 
   .tag-grid {
     justify-content: center;
+    gap: 6px;
+  }
+
+  .tag {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+
+  .big-number {
+    font-size: 48px;
+  }
+
+  .logo {
+    top: 15px;
+    right: 20px;
+    font-size: 10px;
+  }
+
+  .section-label {
+    font-size: 10px;
+    margin-bottom: 8px;
+  }
+
+  .slide-footer {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    margin-top: 24px;
+  }
+
+  .timeline {
+    font-size: 12px;
+    gap: 4px 8px;
+  }
+
+  .timeline .time {
+    font-size: 11px;
+  }
+
+  .quote {
+    font-size: var(--fs-sm);
+    padding-left: 12px;
+    margin: 16px 0;
+  }
+
+  .emoji {
+    font-size: 40px;
+    margin-bottom: 12px;
+  }
+
+  .dark-box,
+  .light-box,
+  .orange-box {
+    padding: 10px 12px;
+    font-size: 12px;
+    margin: 8px 0;
+  }
+
+  .card,
+  .card-accent,
+  .card-success,
+  .card-old,
+  .card-new {
+    padding: 12px;
+  }
+
+  .level-card {
+    padding: 12px;
+  }
+
+  .level-card h3 {
+    font-size: var(--fs-sm);
+  }
+
+  .cta-grid {
+    gap: 20px;
+  }
+
+  .qr-box {
+    width: 100px;
+    height: 100px;
+  }
+
+  /* Bio slide responsive */
+  .bio-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    text-align: center;
+  }
+
+  .bio-photo {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto;
+  }
+
+  .bio-name {
+    font-size: var(--fs-md);
+  }
+
+  .bio-title {
+    font-size: var(--fs-sm);
+    margin-bottom: 20px;
+  }
+
+  .bio-cards {
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .bio-card {
+    padding: 12px 16px;
+    font-size: var(--fs-xs);
+  }
+
+  .bio-experience {
+    font-size: var(--fs-sm);
+  }
+
+  /* Hook slide responsive */
+  .hook-center {
+    width: calc(100% - 40px);
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 0 auto;
+    padding-top: 60px;
+  }
+
+  .hook-quote {
+    display: block;
+    font-size: 12px;
+  }
+
+  .hook-result {
+    font-size: var(--fs-sm);
+  }
+
+  /* Center slide adjustments */
+  .center-slide {
+    padding: 20px;
+  }
+
+  /* OpenClaw stack mobile */
+  .openclaw-stack {
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px;
+    font-size: 12px;
+  }
+
+  .stack-arrow {
+    transform: rotate(90deg);
+  }
+
+  .card-icon {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+
+  /* Architecture diagram mobile */
+  .arch-hub {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: static;
+  }
+
+  .arch-center {
+    position: static;
+    transform: none;
+    order: 0;
+    padding: 16px;
+  }
+
+  .arch-center .arch-label {
+    font-size: var(--fs-sm);
+    margin-bottom: 8px;
+  }
+
+  .arch-chips {
+    gap: 6px;
+  }
+
+  .arch-chips span {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+
+  .arch-sat {
+    position: static;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+    min-width: 100%;
+    padding: 12px 16px;
+  }
+
+  .arch-sat-icon {
+    font-size: 24px;
+    margin-bottom: 0;
+  }
+
+  .arch-sat-label {
+    font-size: var(--fs-sm);
+  }
+
+  .arch-sat-sub {
+    font-size: 10px;
+  }
+
+  .arch-sat-tl { order: 1; }
+  .arch-sat-tr { order: 2; }
+  .arch-sat-bl { order: 3; }
+  .arch-sat-br { order: 4; }
+
+  .arch-lines {
+    display: none;
   }
 }
 
